@@ -1,0 +1,31 @@
+{
+  "name": "TJson - Jasson Gómez Portfolio",
+  "short_name": "TJson",
+  "description": "Senior Full Stack Developer specializing in Python, JavaScript, React, and Node.js. Building scalable applications and innovative digital solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0ea5e9",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo_tjson.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "es-ES"
+}
