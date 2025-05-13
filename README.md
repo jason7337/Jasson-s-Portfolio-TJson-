@@ -72,6 +72,7 @@ Full Stack Developer with 7+ years of experience building web and mobile applica
 ### Projects
 
 - [SpeedyGoApp](https://speedygoapp.com) - Real-time transportation platform
+- [LogSense AI](https://logsense-ai.tjson.net/) - ML-powered log analysis system
 - TJson Portfolio - This site
 - 20+ client projects
 

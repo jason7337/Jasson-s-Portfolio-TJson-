@@ -328,6 +328,33 @@ export const useResumeGenerator = () => {
     });
     yPosition += 8;
 
+    // LogSense AI Project
+    addText('LogSense AI', 20, yPosition, {
+      fontSize: 11,
+      fontStyle: 'bold'
+    });
+    yPosition += 5;
+
+    const logsenseDesc = t('projects.logsense.description');
+    const logsenseLines = pdf.splitTextToSize(logsenseDesc, 170);
+    logsenseLines.forEach((line: string) => {
+      addText(line, 20, yPosition, { fontSize: 9 });
+      yPosition += 4;
+    });
+    yPosition += 2;
+
+    addText(t('projects.technologies') + ': Python, FastAPI, scikit-learn, Docker, Google Cloud Run', 20, yPosition, {
+      fontSize: 9,
+      color: lightTextColor
+    });
+    yPosition += 5;
+
+    addText('Website: logsense-ai.tjson.net', 20, yPosition, {
+      fontSize: 9,
+      color: lightTextColor
+    });
+    yPosition += 8;
+
     // Portfolio Project
     addText('Professional Portfolio', 20, yPosition, {
       fontSize: 11,
