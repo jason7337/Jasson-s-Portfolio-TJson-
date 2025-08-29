@@ -27,11 +27,22 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 5000,
-    allowedHosts: "all",
+    strictPort: false,
+    // Allow all hosts including dynamic Replit domains
+    allowedHosts: [
+      "localhost",
+      "127.0.0.1", 
+      "0.0.0.0",
+      ".replit.dev",
+      /.*\.replit\.dev$/
+    ],
+    // Disable host check completely for Replit compatibility
+    disableHostCheck: true,
     // Replit-specific server configuration
     hmr: {
       port: 5001,
-      host: "0.0.0.0"
+      host: "0.0.0.0",
+      clientPort: 443
     },
     watch: {
       usePolling: true,
