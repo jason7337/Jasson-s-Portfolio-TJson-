@@ -27,7 +27,7 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 5000,
-    allowedHosts: ["all"],
+    allowedHosts: "all",
     // Replit-specific server configuration
     hmr: {
       port: 5001,
