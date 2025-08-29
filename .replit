@@ -52,7 +52,12 @@ type = "request"
 command = "launch"
 type = "request"
 
+[[ports]]
+localPort = 5173
+externalPort = 80
+
 [workflows]
+runButton = "Start Portfolio"
 
 [[workflows.workflow]]
 name = "Start Portfolio"
@@ -62,7 +67,3 @@ author = 38234128
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npm run dev"
-
-[[ports]]
-localPort = 5173
-externalPort = 80
