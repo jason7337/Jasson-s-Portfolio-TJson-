@@ -36,6 +36,7 @@ A modern, elegant, and responsive portfolio website showcasing my work as a Comp
 - **Lucide React** - Beautiful icon library
 
 ### Deployment
+- **Replit Ready** - Optimized for Replit deployment
 - **Vercel/Netlify Ready** - Optimized for modern hosting platforms
 - **GitHub Pages** - Alternative deployment option
 
@@ -139,7 +140,16 @@ The portfolio displays direct contact information including:
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Replit (Recommended for Development)
+1. Fork or import the repository to Replit
+2. The project includes optimized configuration files:
+   - `.replit` - Main configuration file
+   - `replit.nix` - Environment dependencies
+   - `.replitignore` - Files to exclude from upload
+3. Click "Run" to start the development server
+4. For production deployment, use the "Deploy" tab in Replit
+
+### Vercel
 1. Push code to GitHub
 2. Connect repository to Vercel
 3. Deploy automatically

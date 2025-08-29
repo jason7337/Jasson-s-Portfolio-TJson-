@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
+// Replit-optimized Vite configuration for portfolio deployment
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -13,9 +14,34 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
+    // Optimize build for Replit deployment
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu']
+        }
+      }
+    }
   },
   server: {
     host: true,
     port: 5173,
+    // Replit-specific server configuration
+    hmr: {
+      port: 5174,
+      host: "localhost"
+    },
+    watch: {
+      usePolling: true,
+      interval: 300
+    }
   },
+  // Optimize for Replit environment
+  esbuild: {
+    target: 'es2020'
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'framer-motion']
+  }
 });
