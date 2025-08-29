@@ -51,3 +51,18 @@ type = "request"
 [debugger.interactive.launchMessage]
 command = "launch"
 type = "request"
+
+[workflows]
+
+[[workflows.workflow]]
+name = "Start Portfolio"
+mode = "sequential"
+author = 38234128
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+
+[[ports]]
+localPort = 5173
+externalPort = 80
