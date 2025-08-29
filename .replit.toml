@@ -1,0 +1,19 @@
+# Modern Replit configuration file
+# This file provides deployment configuration for the TJson Portfolio
+
+[deployment]
+deploymentTarget = "static"
+publicDir = "dist"
+
+[[deployment.build]]
+cmd = "npm run build"
+
+[languages]
+
+[languages.typescript]
+pattern = "**/*.{ts,tsx}"
+start = "npm run dev"
+
+[languages.javascript]
+pattern = "**/*.{js,jsx}"
+start = "npm run dev"
