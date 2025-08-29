@@ -3,10 +3,4 @@
 
 [deployment]
 deploymentTarget = "gce"
-run = "npm start"
-
-[[deployment.build]]
-cmd = "npm ci"
-
-[[deployment.build]]
-cmd = "npm run build"
+run = "node start-production.js"
