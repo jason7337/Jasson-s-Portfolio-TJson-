@@ -5,10 +5,8 @@ run = "npm run dev"
 language = "nodejs"
 
 [deployment]
-deploymentTarget = "static"
-publicDir = "dist"
-build = ["sh", "-c", "npm run build"]
-run = ["sh", "-c", "echo 'Build completed. Ready for static deployment.'"]
+run = "npm run preview"
+deploymentTarget = "gce"
 
 [packager]
 language = "nodejs"
