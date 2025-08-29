@@ -36,6 +36,6 @@ if (!fs.existsSync(distPath)) {
     console.log('✅ Build already exists');
 }
 
-// Start the preview server
-console.log('🌐 Starting preview server on port 5000...');
-execSync('npm run preview', { stdio: 'inherit' });
+// Start the Express server
+console.log('🌐 Starting Express server on port 5000...');
+execSync('node server.js', { stdio: 'inherit' });
