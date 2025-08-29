@@ -25,51 +25,45 @@ export const Skills: React.FC = () => {
       skills: [
         { name: 'React.js', level: 95, tools: ['Hooks', 'Context', 'Redux'] },
         { name: 'TypeScript', level: 90, tools: ['ES6+', 'Modern JS'] },
-        { name: 'Angular', level: 85, tools: ['RxJS', 'NGRX'] },
-        { name: 'Vue.js', level: 80, tools: ['Vuex', 'Composition API'] },
-        { name: 'Next.js', level: 88, tools: ['SSR', 'SSG', 'ISR'] },
-        { name: 'Tailwind CSS', level: 92, tools: ['Responsive Design', 'CSS3'] }
+        { name: 'Tailwind CSS', level: 92, tools: ['Responsive Design', 'CSS3'] },
+        { name: 'Vite', level: 88, tools: ['Build Tool', 'HMR'] },
+        { name: 'Framer Motion', level: 85, tools: ['Animations', 'Gestures'] }
+      ]
+    },
+    mobile: {
+      title: 'skills.mobile',
+      skills: [
+        { name: 'Flutter', level: 92, tools: ['Dart', 'Material Design'] },
+        { name: 'Firebase', level: 88, tools: ['Firestore', 'Auth', 'Storage'] },
+        { name: 'Google Maps API', level: 85 },
+        { name: 'React Native', level: 80 }
       ]
     },
     database: {
       title: 'skills.database',
       skills: [
-        { name: 'PostgreSQL', level: 88 },
-        { name: 'MongoDB', level: 90 },
-        { name: 'MySQL', level: 85 },
-        { name: 'Oracle', level: 75, tools: ['PL/SQL'] },
-        { name: 'Redis', level: 82 }
+        { name: 'Firebase', level: 90, tools: ['Firestore', 'Realtime DB'] },
+        { name: 'PostgreSQL', level: 85 },
+        { name: 'MongoDB', level: 88 },
+        { name: 'MySQL', level: 82 }
       ]
     },
     cloud: {
       title: 'skills.cloud',
       skills: [
-        { name: 'AWS', level: 85, tools: ['EC2', 'S3', 'Lambda', 'RDS'] },
-        { name: 'Docker', level: 90 },
-        { name: 'Kubernetes', level: 75 },
-        { name: 'CI/CD', level: 88, tools: ['Jenkins', 'GitLab CI', 'GitHub Actions'] },
-        { name: 'Linux', level: 85 }
+        { name: 'Firebase', level: 90, tools: ['Hosting', 'Functions', 'Analytics'] },
+        { name: 'AWS', level: 82, tools: ['EC2', 'S3', 'Lambda'] },
+        { name: 'Docker', level: 85 },
+        { name: 'CI/CD', level: 86, tools: ['GitHub Actions', 'GitLab CI'] }
       ]
     },
     tools: {
       title: 'skills.tools',
       skills: [
         { name: 'Git', level: 95, tools: ['GitHub', 'GitLab'] },
-        { name: 'Testing', level: 85, tools: ['Jest', 'JMeter', 'Cypress'] },
-        { name: 'Agile/Scrum', level: 90 },
-        { name: 'CMS', level: 88, tools: ['WordPress', 'Strapi', 'Contentful'] }
-      ]
-    },
-    emerging: {
-      title: 'skills.emerging',
-      skills: [
-        { name: 'AI Integration', level: 80, tools: ['OpenAI', 'LangChain'] },
-        { name: 'Electron', level: 85 },
-        { name: 'Tauri', level: 75 },
-        { name: 'React Native', level: 82 },
-        { name: 'Blockchain', level: 70, tools: ['Web3', 'Smart Contracts'] },
-        { name: 'Framer Motion', level: 88 },
-        { name: 'Three.js', level: 75 }
+        { name: 'VS Code', level: 92 },
+        { name: 'Android Studio', level: 88 },
+        { name: 'Agile/Scrum', level: 90 }
       ]
     }
   };
@@ -182,7 +176,7 @@ export const Skills: React.FC = () => {
           className="mt-12 text-center"
         >
           <p className="text-neutral-600 dark:text-neutral-400">
-            + Vite, i18next, EmailJS, Framer Motion, and many more...
+            + i18next, Play Console, App Store Connect, y muchas más...
           </p>
         </motion.div>
       </div>

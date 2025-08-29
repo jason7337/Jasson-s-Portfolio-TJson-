@@ -46,7 +46,11 @@ export const Experience: React.FC = () => {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-4">
                     <div className="p-3 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900 dark:to-accent-900 rounded-xl">
-                      <Briefcase className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                      <img
+                        src="/images/speedygo_logo.png"
+                        alt="SpeedyGo Logo"
+                        className="w-6 h-6 object-contain"
+                      />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
@@ -92,16 +96,16 @@ export const Experience: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
                   >
-                    <span>Website</span>
+<span>{t('experience.speedygo.website')}</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
                   <a
-                    href="https://play.google.com/store"
+                    href="https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
                   >
-                    <span>Play Store</span>
+<span>{t('experience.speedygo.playStore')}</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>

@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/jason7337', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/jasson-gomez-211777209/', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:gomezjason010@gmail.com', label: 'Email' }
   ];
 
@@ -181,7 +181,7 @@ export const Hero: React.FC = () => {
               {/* Profile Image */}
               <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-2xl">
                 <img
-                  src="/images/profile.jpeg"
+                  src="/images/profile.jpg"
                   alt="Jasson Gómez"
                   className="w-full h-full object-cover"
                   style={{ aspectRatio: '1/1' }}

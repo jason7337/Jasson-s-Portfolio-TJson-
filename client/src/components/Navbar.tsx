@@ -56,7 +56,7 @@ export const Navbar: React.FC = () => {
             onClick={() => scrollToSection('home')}
           >
             <img
-              src="/images/logo.png"
+              src="/images/logo_tjson.png"
               alt="TJson Logo"
               className="h-10 w-auto"
             />

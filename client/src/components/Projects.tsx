@@ -5,7 +5,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Code2, Star } from 'lucide-react';
+import { Github, ExternalLink, Code2 } from 'lucide-react';
 
 export const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -13,63 +13,21 @@ export const Projects: React.FC = () => {
   const projects = [
     {
       title: 'TJson Portfolio',
-      description: 'Modern portfolio website built with React, TypeScript, and Framer Motion',
-      image: '/images/logo-bg.png',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'i18next', 'Vite'],
+      descriptionKey: 'projects.portfolio.description',
+      image: '/images/logo2_tjson.png',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
       github: 'https://github.com/jason7337/Jasson-s-Portfolio-TJson-.git',
-      live: 'https://tjson.com',
-      featured: true,
-      stars: 42
+      live: '#',
+      featured: true
     },
     {
       title: 'SpeedyGoApp',
-      description: 'Full-stack delivery platform with real-time tracking',
-      image: '/images/logo.png',
-      technologies: ['React Native', 'Node.js', 'MongoDB', 'Socket.io', 'AWS'],
+      descriptionKey: 'projects.speedygo.description',
+      image: '/images/speedygo_logo.png',
+      technologies: ['Flutter', 'Dart', 'Firebase', 'Google Maps API'],
       github: '#',
-      live: 'https://speedygoapp.com',
-      featured: true,
-      stars: 128
-    },
-    {
-      title: 'E-commerce Platform',
-      description: 'Scalable e-commerce solution with microservices architecture',
-      image: '/images/logo.png',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Docker', 'Kubernetes'],
-      github: '#',
-      live: '#',
-      featured: false,
-      stars: 87
-    },
-    {
-      title: 'AI Content Generator',
-      description: 'AI-powered content generation tool with OpenAI integration',
-      image: '/images/logo.png',
-      technologies: ['Python', 'FastAPI', 'React', 'OpenAI', 'Redis'],
-      github: '#',
-      live: '#',
-      featured: false,
-      stars: 64
-    },
-    {
-      title: 'Real-time Dashboard',
-      description: 'Analytics dashboard with real-time data visualization',
-      image: '/images/logo.png',
-      technologies: ['Angular', 'Express', 'WebSocket', 'D3.js', 'MySQL'],
-      github: '#',
-      live: '#',
-      featured: false,
-      stars: 93
-    },
-    {
-      title: 'CMS Platform',
-      description: 'Headless CMS with multi-tenant support',
-      image: '/images/logo.png',
-      technologies: ['Vue.js', 'Django', 'PostgreSQL', 'GraphQL', 'AWS S3'],
-      github: '#',
-      live: '#',
-      featured: false,
-      stars: 76
+      live: 'https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp',
+      featured: true
     }
   ];
 
@@ -131,16 +89,10 @@ export const Projects: React.FC = () => {
                   <h3 className="text-xl font-bold text-neutral-900 dark:text-white">
                     {project.title}
                   </h3>
-                  <div className="flex items-center gap-1 text-yellow-500">
-                    <Star className="w-4 h-4 fill-current" />
-                    <span className="text-sm text-neutral-600 dark:text-neutral-400">
-                      {project.stars}
-                    </span>
-                  </div>
                 </div>
 
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-2">
-                  {project.description}
+                  {t(project.descriptionKey)}
                 </p>
 
                 {/* Technologies */}
@@ -180,7 +132,7 @@ export const Projects: React.FC = () => {
                       className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-600 rounded-lg cursor-not-allowed"
                     >
                       <Code2 className="w-4 h-4" />
-                      <span className="text-sm font-medium">Private</span>
+<span className="text-sm font-medium">{t('projects.private')}</span>
                     </button>
                   )}
                   {project.live !== '#' ? (
@@ -201,7 +153,7 @@ export const Projects: React.FC = () => {
                       className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-600 rounded-lg cursor-not-allowed"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      <span className="text-sm font-medium">Coming Soon</span>
+<span className="text-sm font-medium">{t('projects.comingSoon')}</span>
                     </button>
                   )}
                 </div>
@@ -225,7 +177,7 @@ export const Projects: React.FC = () => {
             className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-700 transition-colors shadow-lg hover:shadow-xl"
           >
             <Github className="w-5 h-5" />
-            <span className="font-medium">View More on GitHub</span>
+<span className="font-medium">{t('projects.viewMore')}</span>
           </a>
         </motion.div>
       </div>

@@ -11,8 +11,8 @@ export const About: React.FC = () => {
   const { t } = useTranslation();
 
   const highlights = [
-    { icon: Calendar, label: 'experience', value: '5+' },
-    { icon: Code2, label: 'projects', value: '50+' },
+    { icon: Calendar, label: 'experience', value: '7+' },
+    { icon: Code2, label: 'projects', value: '20+' },
     { icon: Globe, label: 'technologies', value: '20+' },
     { icon: Users, label: 'remote', value: '100%' }
   ];
@@ -66,7 +66,7 @@ export const About: React.FC = () => {
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-white dark:bg-neutral-800 rounded-xl shadow-md">
                   <img
-                    src="/images/logo.png"
+                    src="/images/speedygo_logo.png"
                     alt="SpeedyGoApp"
                     className="w-12 h-12 object-contain"
                   />
@@ -76,7 +76,7 @@ export const About: React.FC = () => {
                     SpeedyGoApp
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400 mb-3">
-                    Founder & Lead Developer
+                    {t('about.speedygo.role')}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <a
@@ -85,15 +85,15 @@ export const About: React.FC = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium"
                     >
-                      Visit Website
+{t('about.speedygo.visitWebsite')}
                     </a>
                     <a
-                      href="https://play.google.com/store"
+                      href="https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
                     >
-                      Google Play
+{t('about.speedygo.googlePlay')}
                     </a>
                   </div>
                 </div>

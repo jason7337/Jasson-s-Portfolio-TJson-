@@ -2,7 +2,7 @@
 
 ![TJson Logo](public/images/logo-bg.png)
 
-A modern, elegant, and responsive portfolio website showcasing my work as a Senior Full Stack Developer.
+A modern, elegant, and responsive portfolio website showcasing my work as a Computer Systems Engineering student with 7+ years of software development experience.
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://tjson.com)
 [![GitHub](https://img.shields.io/github/stars/jason7337/Jasson-s-Portfolio-TJson-?style=for-the-badge)](https://github.com/jason7337/Jasson-s-Portfolio-TJson-)
@@ -15,7 +15,7 @@ A modern, elegant, and responsive portfolio website showcasing my work as a Seni
 - **⚡ High Performance** - Built with Vite for lightning-fast loading
 - **🎭 Framer Motion** - Beautiful animations and transitions
 - **🌙 Dark/Light Mode** - Adaptive theme support
-- **📧 Contact Form** - EmailJS integration for direct messaging
+- **📞 Contact Information** - Direct contact details and social links
 - **🔍 SEO Optimized** - Complete meta tags and structured data
 - **♿ Accessible** - WCAG compliant design
 
@@ -32,7 +32,7 @@ A modern, elegant, and responsive portfolio website showcasing my work as a Seni
 - **ESLint** - Code linting and formatting
 - **PostCSS** - CSS processing
 - **i18next** - Internationalization framework
-- **EmailJS** - Email service integration
+- **Splash Screen** - Branded loading animation
 - **Lucide React** - Beautiful icon library
 
 ### Deployment
@@ -128,17 +128,14 @@ The design system uses a carefully crafted color palette defined in `src/config/
 - **Projects**: Update the projects array in `Projects.tsx`
 - **Images**: Replace files in `public/images/`
 
-## 📧 Contact Form Setup
+## 📞 Contact Information
 
-The contact form uses EmailJS for sending emails:
+The portfolio displays direct contact information including:
 
-1. **Create EmailJS Account**: [https://emailjs.com](https://emailjs.com)
-2. **Get Service ID, Template ID, and Public Key**
-3. **Update Contact.tsx**:
-```typescript
-emailjs.init('YOUR_PUBLIC_KEY');
-await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams);
-```
+- Email and phone contact details
+- Social media links (GitHub, LinkedIn)
+- Professional availability status
+- SpeedyGoApp project links
 
 ## 🚀 Deployment
 
@@ -181,20 +178,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 About Me
 
 **Jasson Armando Gómez Guevara**  
-Senior Full Stack Developer | Python & JavaScript Specialist
+Computer Systems Engineering Student | 7+ Years Software Development Experience
 
 - 🌍 **Location**: El Salvador
 - 💼 **Remote Work**: 100% Available
 - 📧 **Email**: [gomezjason010@gmail.com](mailto:gomezjason010@gmail.com)
 - 📱 **Phone**: +503 7502 5302
-- 🚀 **Company**: Founder of [SpeedyGoApp](https://speedygoapp.com)
+- 🚀 **Role**: Lead Developer at [SpeedyGoApp](https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp)
 
 ### Tech Stack Expertise
 - **Backend**: Python (Flask, FastAPI, Django), Node.js (Express, Nest.js), Java
-- **Frontend**: React.js, TypeScript, Angular, Vue.js, Next.js
-- **Databases**: PostgreSQL, MongoDB, MySQL, Oracle
-- **Cloud & DevOps**: AWS, Docker, Kubernetes, CI/CD
-- **Mobile**: React Native, Electron, Tauri
+- **Frontend**: React.js, TypeScript, Tailwind CSS, Vite, Framer Motion
+- **Mobile**: Flutter, Dart, React Native
+- **Databases**: Firebase, PostgreSQL, MongoDB, MySQL
+- **Cloud & DevOps**: Firebase, AWS, Docker, CI/CD
+- **Tools**: Git, VS Code, Android Studio
 
 ## 🌟 Support
 
@@ -202,6 +200,6 @@ If you like this project, please give it a ⭐ on GitHub!
 
 ---
 
-**Made with ❤️ using React + TypeScript + Framer Motion**
+**Made with ❤️ using React + TypeScript + Vite + TailwindCSS**
 
 *This portfolio demonstrates my expertise in modern web development technologies and serves as a showcase of my professional work and skills.*

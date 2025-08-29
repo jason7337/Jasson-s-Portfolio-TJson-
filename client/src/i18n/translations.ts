@@ -26,15 +26,20 @@ export const translations = {
     about: {
       title: 'About Me',
       subtitle: 'Passionate about creating innovative digital solutions',
-      bio1: 'Computer Systems Engineer from the National University of El Salvador with over 5 years of experience in software development.',
+      bio1: 'Computer Systems Engineering student from the National University of El Salvador with over 7 years of experience in software development.',
       bio2: 'Specialized in building scalable applications with modern technologies, from microservices architectures to intuitive user interfaces.',
-      bio3: 'Founder of SpeedyGoApp, demonstrating entrepreneurial spirit and technical leadership.',
+      bio3: 'Lead Developer at SpeedyGoApp, demonstrating technical leadership in an innovative transport solution.',
       highlights: {
         title: 'Quick Facts',
-        experience: '5+ Years Experience',
-        projects: '50+ Projects Completed',
+        experience: '7+ Years Experience',
+        projects: '20+ Projects Completed',
         technologies: '20+ Technologies',
         remote: '100% Remote Work'
+      },
+      speedygo: {
+        role: 'Lead Developer',
+        visitWebsite: 'Visit Website',
+        googlePlay: 'Google Play'
       }
     },
     skills: {
@@ -42,6 +47,7 @@ export const translations = {
       subtitle: 'Technologies I work with daily',
       backend: 'Backend Development',
       frontend: 'Frontend Development',
+      mobile: 'Mobile Development',
       database: 'Databases',
       cloud: 'Cloud & DevOps',
       tools: 'Tools & Methodologies',
@@ -51,24 +57,26 @@ export const translations = {
       title: 'Experience',
       subtitle: 'My professional journey',
       speedygo: {
-        title: 'Founder & Lead Developer',
+        title: 'Lead Developer',
         company: 'SpeedyGoApp',
         period: 'Present',
-        description: 'Leading the development of a delivery platform available on Google Play Store.',
+        description: 'Lead developer for innovative transport app in Colombia. Collaboration between Salvadoran and Colombian partners.',
         achievements: [
-          'Designed and implemented full-stack architecture',
-          'Developed mobile application with React Native',
-          'Implemented real-time tracking system',
-          'Built scalable backend with Node.js and MongoDB'
-        ]
+          'Developed complete mobile application with Flutter and Dart',
+          'Implemented Firebase backend architecture',
+          'Integrated real-time tracking with Google Maps API',
+          'Launched successfully in Nariño, Colombia'
+        ],
+        website: 'Website',
+        playStore: 'Play Store'
       },
       freelance: {
         title: 'Senior Full Stack Developer',
         company: 'Freelance',
-        period: '5+ years',
+        period: '7+ years',
         description: 'Working with international clients on diverse projects.',
         achievements: [
-          'Delivered 50+ successful projects',
+          'Delivered 20+ successful projects',
           'Specialized in React.js and Node.js ecosystems',
           'Implemented microservices architectures',
           'Integrated AI solutions for process optimization'
@@ -80,7 +88,16 @@ export const translations = {
       subtitle: 'Some of my recent work',
       viewGithub: 'View on GitHub',
       viewLive: 'Live Demo',
-      technologies: 'Technologies Used'
+      technologies: 'Technologies Used',
+      private: 'Private',
+      comingSoon: 'Coming Soon',
+      viewMore: 'View More on GitHub',
+      portfolio: {
+        description: 'Modern portfolio website built with React, TypeScript and TailwindCSS'
+      },
+      speedygo: {
+        description: 'Innovative transport app for Colombia, started in Nariño. Collaboration between Salvadoran and Colombian partners'
+      }
     },
     contact: {
       title: 'Get In Touch',
@@ -130,15 +147,20 @@ export const translations = {
     about: {
       title: 'Sobre Mí',
       subtitle: 'Apasionado por crear soluciones digitales innovadoras',
-      bio1: 'Ingeniero en Sistemas Informáticos de la Universidad Nacional de El Salvador con más de 5 años de experiencia en desarrollo de software.',
+      bio1: 'Estudiante de Ingeniería de Sistemas Informáticos de la Universidad Nacional de El Salvador con más de 7 años de experiencia en desarrollo de software.',
       bio2: 'Especializado en construir aplicaciones escalables con tecnologías modernas, desde arquitecturas de microservicios hasta interfaces de usuario intuitivas.',
-      bio3: 'Fundador de SpeedyGoApp, demostrando espíritu emprendedor y liderazgo técnico.',
+      bio3: 'Desarrollador Principal en SpeedyGoApp, demostrando liderazgo técnico en una solución innovadora de transporte.',
       highlights: {
         title: 'Datos Rápidos',
-        experience: '5+ Años de Experiencia',
-        projects: '50+ Proyectos Completados',
+        experience: '7+ Años de Experiencia',
+        projects: '20+ Proyectos Completados',
         technologies: '20+ Tecnologías',
         remote: '100% Trabajo Remoto'
+      },
+      speedygo: {
+        role: 'Desarrollador Principal',
+        visitWebsite: 'Visitar Sitio Web',
+        googlePlay: 'Google Play'
       }
     },
     skills: {
@@ -146,6 +168,7 @@ export const translations = {
       subtitle: 'Tecnologías con las que trabajo diariamente',
       backend: 'Desarrollo Backend',
       frontend: 'Desarrollo Frontend',
+      mobile: 'Desarrollo Móvil',
       database: 'Bases de Datos',
       cloud: 'Cloud y DevOps',
       tools: 'Herramientas y Metodologías',
@@ -155,24 +178,26 @@ export const translations = {
       title: 'Experiencia',
       subtitle: 'Mi trayectoria profesional',
       speedygo: {
-        title: 'Fundador y Desarrollador Principal',
+        title: 'Desarrollador Principal',
         company: 'SpeedyGoApp',
         period: 'Presente',
-        description: 'Liderando el desarrollo de una plataforma de delivery disponible en Google Play Store.',
+        description: 'Desarrollador principal de app de transporte innovadora en Colombia. Colaboración entre socios salvadoreños y colombianos.',
         achievements: [
-          'Diseñé e implementé arquitectura full-stack',
-          'Desarrollé aplicación móvil con React Native',
-          'Implementé sistema de rastreo en tiempo real',
-          'Construí backend escalable con Node.js y MongoDB'
-        ]
+          'Desarrollé aplicación móvil completa con Flutter y Dart',
+          'Implementé arquitectura backend con Firebase',
+          'Integré rastreo en tiempo real con Google Maps API',
+          'Lanzamiento exitoso en Nariño, Colombia'
+        ],
+        website: 'Sitio Web',
+        playStore: 'Play Store'
       },
       freelance: {
         title: 'Desarrollador Full Stack Senior',
         company: 'Freelance',
-        period: '5+ años',
+        period: '7+ años',
         description: 'Trabajando con clientes internacionales en proyectos diversos.',
         achievements: [
-          'Entregué 50+ proyectos exitosos',
+          'Entregué 20+ proyectos exitosos',
           'Especializado en ecosistemas React.js y Node.js',
           'Implementé arquitecturas de microservicios',
           'Integré soluciones de IA para optimización de procesos'
@@ -184,7 +209,16 @@ export const translations = {
       subtitle: 'Algunos de mis trabajos recientes',
       viewGithub: 'Ver en GitHub',
       viewLive: 'Demo en Vivo',
-      technologies: 'Tecnologías Utilizadas'
+      technologies: 'Tecnologías Utilizadas',
+      private: 'Privado',
+      comingSoon: 'Próximamente',
+      viewMore: 'Ver Más en GitHub',
+      portfolio: {
+        description: 'Portafolio web moderno construido con React, TypeScript y TailwindCSS'
+      },
+      speedygo: {
+        description: 'App de transporte innovadora para Colombia, iniciada en Nariño. Colaboración entre socios salvadoreños y colombianos'
+      }
     },
     contact: {
       title: 'Contacto',
