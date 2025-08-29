@@ -5,8 +5,9 @@ run = "npm run dev"
 language = "nodejs"
 
 [deployment]
-run = "npm run preview"
+run = "npm start"
 deploymentTarget = "gce"
+build = ["sh", "-c", "npm ci && npm run build"]
 
 [packager]
 language = "nodejs"

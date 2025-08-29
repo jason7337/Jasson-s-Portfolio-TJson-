@@ -3,7 +3,10 @@
 
 [deployment]
 deploymentTarget = "gce"
-run = "npm run preview"
+run = "npm start"
+
+[[deployment.build]]
+cmd = "npm ci"
 
 [[deployment.build]]
 cmd = "npm run build"
