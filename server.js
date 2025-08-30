@@ -5,6 +5,7 @@
 
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -30,18 +31,6 @@ process.on('uncaughtException', (error) => {
   process.exit(1);
 });
 
-// Add root endpoint for health checks
-app.get('/', (req, res) => {
-  res.set({
-    'Cache-Control': 'no-cache',
-    'Connection': 'close'
-  });
-  res.status(200).send('OK');
-});
-
-// Serve static files from the dist directory
-app.use(express.static(path.join(__dirname, 'dist')));
-
 // Health check endpoint for deployments - optimized for fast response
 app.get('/health', (req, res) => {
   // Set response timeout to ensure fast response
@@ -58,19 +47,37 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', timestamp: Date.now() });
 });
 
+// Serve static files from the dist directory
+app.use(express.static(path.join(__dirname, 'dist'), {
+  dotfiles: 'ignore',
+  etag: false,
+  extensions: ['htm', 'html'],
+  index: false,
+  maxAge: '1d',
+  redirect: false,
+  setHeaders: function (res, path, stat) {
+    res.set('x-timestamp', Date.now())
+  }
+}));
+
 // Handle all routes by serving the index.html file (SPA routing)
-// Exclude health check and API routes from catch-all
-app.get('*', (req, res, next) => {
-  // Skip catch-all for health checks and API routes
-  if (req.path.startsWith('/health') || req.path.startsWith('/api')) {
-    return next();
+app.get('*', (req, res) => {
+  const indexPath = path.join(__dirname, 'dist', 'index.html');
+  
+  // Check if index.html exists
+  if (!fs.existsSync(indexPath)) {
+    console.error('Error: dist/index.html not found');
+    return res.status(500).json({ 
+      error: 'Application not built', 
+      message: 'Run npm run build first' 
+    });
   }
   
-  // Serve the SPA for all other routes
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'), (err) => {
+  // Serve the SPA for all routes
+  res.sendFile(indexPath, (err) => {
     if (err) {
       console.error('Error serving index.html:', err);
-      res.status(500).send('Server Error');
+      res.status(500).json({ error: 'Failed to serve application' });
     }
   });
 });

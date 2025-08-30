@@ -29,9 +29,30 @@ if (!fs.existsSync(nodeModulesPath)) {
 
 // Check if dist folder exists, if not build the project
 const distPath = path.join(__dirname, 'dist');
-if (!fs.existsSync(distPath)) {
+const indexPath = path.join(distPath, 'index.html');
+
+if (!fs.existsSync(distPath) || !fs.existsSync(indexPath)) {
     console.log('🔨 Building the project...');
-    execSync('npm run build', { stdio: 'inherit' });
+    try {
+        // Clean any existing dist folder
+        if (fs.existsSync(distPath)) {
+            console.log('🧹 Cleaning existing build...');
+            execSync('rm -rf dist', { stdio: 'inherit' });
+        }
+        
+        // Build the project
+        execSync('npm run build', { stdio: 'inherit' });
+        
+        // Verify build was successful
+        if (!fs.existsSync(indexPath)) {
+            throw new Error('Build failed: index.html not found in dist folder');
+        }
+        
+        console.log('✅ Build completed successfully');
+    } catch (error) {
+        console.error('❌ Build failed:', error.message);
+        process.exit(1);
+    }
 } else {
     console.log('✅ Build already exists');
 }
