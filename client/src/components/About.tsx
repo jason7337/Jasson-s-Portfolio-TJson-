@@ -42,7 +42,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-12"
+            className="mb-12 max-w-4xl mx-auto"
           >
             <div className="space-y-6">
               <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
@@ -64,27 +64,27 @@ export const About: React.FC = () => {
               transition={{ delay: 0.3 }}
               className="mt-6 sm:mt-8 p-3 sm:p-4 lg:p-6 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950 dark:to-accent-950 rounded-xl sm:rounded-2xl border border-primary-200 dark:border-primary-800"
             >
-              <div className="flex flex-col xs:flex-row items-center xs:items-start gap-3 sm:gap-4">
-                <div className="p-2 sm:p-3 bg-white dark:bg-neutral-800 rounded-lg sm:rounded-xl shadow-md flex-shrink-0">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 lg:gap-6">
+                <div className="p-3 bg-white dark:bg-neutral-800 rounded-xl shadow-md flex-shrink-0">
                   <img
                     src="/images/speedygo_logo.png"
                     alt="SpeedyGoApp"
-                    className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 object-contain"
+                    className="w-12 h-12 lg:w-14 lg:h-14 object-contain"
                   />
                 </div>
-                <div className="flex-1 text-center xs:text-left w-full">
-                  <h3 className="text-base xs:text-lg sm:text-xl font-bold text-neutral-900 dark:text-white mb-1 sm:mb-2">
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 className="text-xl lg:text-2xl font-bold text-neutral-900 dark:text-white mb-2">
                     SpeedyGoApp
                   </h3>
-                  <p className="text-xs xs:text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-2 sm:mb-3">
+                  <p className="text-base lg:text-lg text-neutral-600 dark:text-neutral-400 mb-4 lg:mb-6">
                     {t('about.speedygo.role')}
                   </p>
-                  <div className="flex flex-col xs:flex-row gap-2 w-full">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:max-w-md lg:max-w-lg">
                     <a
                       href="https://speedygoapp.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-xs sm:text-sm font-medium"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium flex-1 sm:flex-initial sm:min-w-[140px]"
                     >
 {t('about.speedygo.visitWebsite')}
                     </a>
@@ -92,7 +92,7 @@ export const About: React.FC = () => {
                       href="https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-xs sm:text-sm font-medium"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium flex-1 sm:flex-initial sm:min-w-[140px]"
                     >
 {t('about.speedygo.googlePlay')}
                     </a>
