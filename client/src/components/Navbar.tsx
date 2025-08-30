@@ -15,15 +15,30 @@ export const Navbar: React.FC = () => {
 
   // Close menus when clicking outside
   useEffect(() => {
-    const handleClickOutside = () => {
-      setIsLangMenuOpen(false);
-      setIsMobileMenuOpen(false);
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('nav')) {
+        setIsLangMenuOpen(false);
+        setIsMobileMenuOpen(false);
+      }
     };
     if (isLangMenuOpen || isMobileMenuOpen) {
       document.addEventListener('click', handleClickOutside);
       return () => document.removeEventListener('click', handleClickOutside);
     }
   }, [isLangMenuOpen, isMobileMenuOpen]);
+
+  // Prevent horizontal scroll
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflowX = 'hidden';
+    } else {
+      document.body.style.overflowX = 'auto';
+    }
+    return () => {
+      document.body.style.overflowX = 'auto';
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,13 +68,13 @@ export const Navbar: React.FC = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
         isScrolled
           ? 'bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg shadow-lg'
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <motion.div
@@ -70,7 +85,7 @@ export const Navbar: React.FC = () => {
             <img
               src="/images/logo_tjson.png"
               alt="TJson Logo"
-              className="h-8 sm:h-10 w-auto"
+              className="h-8 sm:h-10 w-auto flex-shrink-0"
             />
           </motion.div>
 
@@ -111,7 +126,7 @@ export const Navbar: React.FC = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute right-0 mt-2 py-2 w-28 sm:w-32 bg-white dark:bg-neutral-800 rounded-lg shadow-xl z-50"
+                    className="absolute right-0 mt-2 py-2 w-28 sm:w-32 bg-white dark:bg-neutral-800 rounded-lg shadow-xl z-[60]"
                   >
                     <button
                       onClick={toggleLanguage}
@@ -142,7 +157,7 @@ export const Navbar: React.FC = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm rounded-lg shadow-lg mt-2 overflow-hidden border border-neutral-200 dark:border-neutral-700"
+              className="md:hidden bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm rounded-lg shadow-lg mt-2 overflow-hidden border border-neutral-200 dark:border-neutral-700 mx-3"
             >
               <div className="py-3 px-3 space-y-1">
                 {navItems.map((item) => (

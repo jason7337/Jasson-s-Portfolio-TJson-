@@ -10,17 +10,16 @@ A modern, elegant, and responsive portfolio website showcasing my work as a Comp
 
 ## ✨ Features
 
-- **🌐 Multilingual Support** - Spanish and English
+- **🌐 Multilingual Support** - Spanish and English with language switcher
 - **🎨 Modern Design** - Clean, elegant UI with smooth animations
 - **📱 Fully Responsive** - Optimized for all devices and screen sizes
 - **⚡ High Performance** - Built with Vite for lightning-fast loading
 - **🎭 Framer Motion** - Beautiful animations and transitions
-- **🌙 Dark/Light Mode** - Adaptive theme support
 - **📄 Resume Download** - Generate and download CV/Resume in both languages
 - **🗂️ PWA Ready** - Progressive Web App with manifest and favicon
 - **📞 Contact Information** - Direct contact details and social links
 - **🔍 SEO Optimized** - Complete meta tags and structured data
-- **♿ Accessible** - WCAG compliant design
+- **🎯 Interactive Skills** - Categorized skills with smooth transitions
 
 ## 🛠️ Tech Stack
 
@@ -35,8 +34,8 @@ A modern, elegant, and responsive portfolio website showcasing my work as a Comp
 - **ESLint** - Code linting and formatting
 - **PostCSS** - CSS processing
 - **i18next** - Internationalization framework
-- **Splash Screen** - Branded loading animation
 - **Lucide React** - Beautiful icon library
+- **Resume Generator** - Custom HTML resume generation
 
 ### Deployment
 - **Replit Ready** - Optimized for Replit deployment
@@ -191,10 +190,10 @@ The portfolio is currently deployed and accessible at [tjson.net](https://tjson.
 
 ## 📊 Performance
 
-- **Lighthouse Score**: 90+ (Performance, Accessibility, Best Practices, SEO)
-- **Core Web Vitals**: Optimized for excellent user experience
-- **Bundle Size**: Optimized with code splitting and tree shaking
-- **Image Optimization**: WebP format with fallbacks
+- **High Performance**: Built with Vite for fast loading and smooth animations
+- **Responsive Design**: Optimized for mobile, tablet, and desktop devices
+- **SEO Optimized**: Complete meta tags, structured data, and favicon support
+- **Multilingual**: Seamless language switching with persistent user preference
 
 ## 🤝 Contributing
 
@@ -215,9 +214,10 @@ Computer Systems Engineering Student | 7+ Years Software Development Experience
 
 - 🌍 **Location**: El Salvador
 - 💼 **Remote Work**: 100% Available
+- 🌐 **Website**: [tjson.net](https://tjson.net)
 - 📧 **Email**: [gomezjason010@gmail.com](mailto:gomezjason010@gmail.com)
 - 📱 **Phone**: +503 7502 5302
-- 🚀 **Role**: Lead Developer at [SpeedyGoApp](https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp)
+- 🚀 **Role**: Lead Developer at [SpeedyGoApp](https://speedygoapp.com)
 
 ### Tech Stack Expertise
 - **Backend**: Python (Flask, FastAPI, Django), Node.js (Express, Nest.js), Java
