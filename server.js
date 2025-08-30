@@ -43,7 +43,16 @@ app.set('trust proxy', 1);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Root endpoint will be handled by the catch-all route to serve React app
+// Root endpoint - fast response for deployment health checks
+app.get('/', (req, res) => {
+  res.set({
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0',
+    'Connection': 'close'
+  });
+  res.status(200).send('OK');
+});
 
 // Health check endpoint - optimized for deployment
 app.get('/health', (req, res) => {
@@ -77,10 +86,10 @@ app.use(express.static(path.join(__dirname, 'dist'), {
   maxAge: '1h'
 }));
 
-// Handle SPA routes - serve React app for all routes (including root)
+// Handle SPA routes - serve React app for all other routes
 app.get('*', (req, res) => {
-  // Skip if this is health check endpoint
-  if (req.path === '/health') {
+  // Skip if this is health check or root endpoint
+  if (req.path === '/health' || req.path === '/') {
     return res.status(404).json({ error: 'Not found' });
   }
 
@@ -116,25 +125,51 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start the server
+// Add route to serve React app
+app.get('/app', (req, res) => {
+  const indexPath = path.join(__dirname, 'dist', 'index.html');
+  
+  if (!fs.existsSync(indexPath)) {
+    console.error('❌ Build not found: dist/index.html missing');
+    return res.status(500).json({ 
+      error: 'Application not built',
+      message: 'Please run npm run build'
+    });
+  }
+  
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      console.error('❌ Error serving React app:', err);
+      res.status(500).json({ error: 'Failed to serve application' });
+    }
+  });
+});
+
+// Start the server with enhanced startup logging
+console.log('🚀 Starting server...');
 const server = app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
-  console.log(`✅ Health check: http://0.0.0.0:${PORT}/health`);
+  console.log(`✅ Server successfully started on http://0.0.0.0:${PORT}`);
+  console.log(`🔗 Root endpoint: http://0.0.0.0:${PORT}/`);
+  console.log(`❤️  Health check: http://0.0.0.0:${PORT}/health`);
+  console.log(`⚛️  React app: http://0.0.0.0:${PORT}/app`);
   console.log(`📁 Serving from: ${path.join(__dirname, 'dist')}`);
   
   // Verify build exists
   const indexPath = path.join(__dirname, 'dist', 'index.html');
   if (fs.existsSync(indexPath)) {
     console.log('✅ Build verified: index.html found');
+    console.log(`📦 Build size: ${Math.round(fs.statSync(indexPath).size / 1024)}KB`);
   } else {
     console.error('❌ Build missing: run npm run build');
   }
+  
+  console.log('🎯 Server ready for deployment health checks');
 });
 
-// Set server timeouts for deployment
-server.timeout = 30000;
-server.keepAliveTimeout = 5000;
-server.headersTimeout = 10000;
+// Set server timeouts optimized for deployment health checks
+server.timeout = 10000;
+server.keepAliveTimeout = 2000;
+server.headersTimeout = 5000;
 
 // Graceful shutdown handlers
 process.on('SIGTERM', () => {
