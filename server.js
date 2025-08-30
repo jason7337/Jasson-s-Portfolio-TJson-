@@ -16,12 +16,18 @@ const PORT = process.env.PORT || 5000;
 // Serve static files from the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
 
+// Health check endpoint at root for Cloud Run deployments
+app.get('/', (req, res) => {
+  res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 // Health check endpoint for Replit deployments
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
 // Handle all other routes by serving the index.html file (SPA routing)
+// Exclude root path since it's handled explicitly above
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
