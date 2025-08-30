@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent mb-4"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent mb-4"
             >
               {t('hero.name')}
             </motion.h1>
@@ -65,7 +65,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-2xl lg:text-3xl font-semibold text-neutral-800 dark:text-neutral-200 mb-2"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold text-neutral-800 dark:text-neutral-200 mb-2"
             >
               {t('hero.title')}
             </motion.h2>
@@ -74,7 +74,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg text-primary-600 dark:text-primary-400 mb-6"
+              className="text-base sm:text-lg text-primary-600 dark:text-primary-400 mb-6"
             >
               {t('hero.subtitle')}
             </motion.p>
@@ -83,7 +83,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-neutral-600 dark:text-neutral-400 mb-8 max-w-lg mx-auto lg:mx-0"
+              className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-8 max-w-lg mx-auto lg:mx-0"
             >
               {t('hero.description')}
             </motion.p>
@@ -110,13 +110,13 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all text-sm sm:text-base"
               >
                 {t('hero.cta')}
               </motion.button>
@@ -124,7 +124,7 @@ export const Hero: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('projects')}
-                className="px-8 py-3 bg-white dark:bg-neutral-800 text-primary-600 dark:text-primary-400 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all border border-primary-200 dark:border-primary-800"
+                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-white dark:bg-neutral-800 text-primary-600 dark:text-primary-400 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all border border-primary-200 dark:border-primary-800 text-sm sm:text-base"
               >
                 {t('hero.viewWork')}
               </motion.button>
@@ -161,7 +161,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative mt-8 lg:mt-0"
           >
             <motion.div
               animate={{
@@ -179,7 +179,7 @@ export const Hero: React.FC = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full blur-xl opacity-30"></div>
               
               {/* Profile Image */}
-              <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-2xl">
+              <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-2xl max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:max-w-none">
                 <img
                   src="/images/profile.jpg"
                   alt="Jasson Gómez"

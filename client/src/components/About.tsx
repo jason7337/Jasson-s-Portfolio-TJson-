@@ -27,10 +27,10 @@ export const About: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             {t('about.title')}
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400">
             {t('about.subtitle')}
           </p>
         </motion.div>
@@ -44,13 +44,13 @@ export const About: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="space-y-6">
-              <p className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
                 {t('about.bio1')}
               </p>
-              <p className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
                 {t('about.bio2')}
               </p>
-              <p className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
                 {t('about.bio3')}
               </p>
             </div>
@@ -61,29 +61,29 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="mt-8 p-6 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950 dark:to-accent-950 rounded-2xl border border-primary-200 dark:border-primary-800"
+              className="mt-8 p-4 sm:p-6 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950 dark:to-accent-950 rounded-2xl border border-primary-200 dark:border-primary-800"
             >
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-white dark:bg-neutral-800 rounded-xl shadow-md">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <div className="p-2 sm:p-3 bg-white dark:bg-neutral-800 rounded-xl shadow-md flex-shrink-0">
                   <img
                     src="/images/speedygo_logo.png"
                     alt="SpeedyGoApp"
-                    className="w-12 h-12 object-contain"
+                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white mb-2">
                     SpeedyGoApp
                   </h3>
-                  <p className="text-neutral-600 dark:text-neutral-400 mb-3">
+                  <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-3">
                     {t('about.speedygo.role')}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <a
                       href="https://speedygoapp.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium"
+                      className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-xs sm:text-sm font-medium"
                     >
 {t('about.speedygo.visitWebsite')}
                     </a>
@@ -91,7 +91,7 @@ export const About: React.FC = () => {
                       href="https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                      className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-xs sm:text-sm font-medium"
                     >
 {t('about.speedygo.googlePlay')}
                     </a>
@@ -108,10 +108,10 @@ export const About: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-8 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white mb-6 sm:mb-8 text-center">
               {t('about.highlights.title')}
             </h3>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -120,16 +120,16 @@ export const About: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-white dark:bg-neutral-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+                  className="bg-white dark:bg-neutral-800 rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-xl transition-all"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="p-3 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900 dark:to-accent-900 rounded-xl mb-4">
-                      <item.icon className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                    <div className="p-2 sm:p-3 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900 dark:to-accent-900 rounded-xl mb-2 sm:mb-4">
+                      <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600 dark:text-primary-400" />
                     </div>
-                    <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent mb-2">
+                    <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent mb-1 sm:mb-2">
                       {item.value}
                     </div>
-                    <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                    <div className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
                       {t(`about.highlights.${item.label}`)}
                     </div>
                   </div>

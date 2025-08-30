@@ -17,7 +17,7 @@ export const Projects: React.FC = () => {
       image: '/images/logo2_tjson.png',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
       github: 'https://github.com/jason7337/Jasson-s-Portfolio-TJson-.git',
-      live: '#',
+      live: 'https://tjson.net',
       featured: true
     },
     {
@@ -49,7 +49,7 @@ export const Projects: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -84,14 +84,14 @@ export const Projects: React.FC = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-4 sm:p-5 lg:p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-neutral-900 dark:text-white">
+                  <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white">
                     {project.title}
                   </h3>
                 </div>
 
-                <p className="text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-2">
+                <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-2">
                   {t(project.descriptionKey)}
                 </p>
 
@@ -113,7 +113,7 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                   {project.github !== '#' ? (
                     <motion.a
                       whileHover={{ scale: 1.05 }}
@@ -121,7 +121,7 @@ export const Projects: React.FC = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-neutral-900 dark:bg-neutral-800 text-white rounded-lg hover:bg-neutral-800 dark:hover:bg-neutral-700 transition-colors"
+                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-neutral-900 dark:bg-neutral-800 text-white rounded-lg hover:bg-neutral-800 dark:hover:bg-neutral-700 transition-colors text-sm"
                     >
                       <Github className="w-4 h-4" />
                       <span className="text-sm font-medium">{t('projects.viewGithub')}</span>
@@ -129,7 +129,7 @@ export const Projects: React.FC = () => {
                   ) : (
                     <button
                       disabled
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-600 rounded-lg cursor-not-allowed"
+                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-600 rounded-lg cursor-not-allowed text-sm"
                     >
                       <Code2 className="w-4 h-4" />
 <span className="text-sm font-medium">{t('projects.private')}</span>
@@ -142,7 +142,7 @@ export const Projects: React.FC = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm"
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span className="text-sm font-medium">{t('projects.viewLive')}</span>
@@ -150,7 +150,7 @@ export const Projects: React.FC = () => {
                   ) : (
                     <button
                       disabled
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-600 rounded-lg cursor-not-allowed"
+                      className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-600 rounded-lg cursor-not-allowed text-sm"
                     >
                       <ExternalLink className="w-4 h-4" />
 <span className="text-sm font-medium">{t('projects.comingSoon')}</span>

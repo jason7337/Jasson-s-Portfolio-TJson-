@@ -38,32 +38,32 @@ export const Experience: React.FC = () => {
             className="relative mb-12"
           >
             <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-primary-600 to-accent-600 rounded-full"></div>
-            <div className="ml-8">
+            <div className="ml-4 sm:ml-8">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+                className="bg-white dark:bg-neutral-800 rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900 dark:to-accent-900 rounded-xl">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900 dark:to-accent-900 rounded-xl flex-shrink-0">
                       <img
                         src="/images/speedygo_logo.png"
                         alt="SpeedyGo Logo"
-                        className="w-6 h-6 object-contain"
+                        className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                       />
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
+                    <div className="min-w-0">
+                      <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white break-words">
                         {t('experience.speedygo.title')}
                       </h3>
-                      <p className="text-lg text-primary-600 dark:text-primary-400 font-medium">
+                      <p className="text-base sm:text-lg text-primary-600 dark:text-primary-400 font-medium">
                         {t('experience.speedygo.company')}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
+                  <div className="flex items-center gap-2 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 flex-shrink-0">
                     <Calendar className="w-4 h-4" />
-                    <span>{t('experience.speedygo.period')}</span>
+                    <span className="whitespace-nowrap">{t('experience.speedygo.period')}</span>
                   </div>
                 </div>
 
@@ -89,24 +89,24 @@ export const Experience: React.FC = () => {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <a
                     href="https://speedygoapp.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm sm:text-base"
                   >
 <span>{t('experience.speedygo.website')}</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                   </a>
                   <a
                     href="https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm sm:text-base"
                   >
 <span>{t('experience.speedygo.playStore')}</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                   </a>
                 </div>
               </motion.div>
@@ -122,28 +122,28 @@ export const Experience: React.FC = () => {
             className="relative"
           >
             <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-accent-600 to-primary-600 rounded-full"></div>
-            <div className="ml-8">
+            <div className="ml-4 sm:ml-8">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+                className="bg-white dark:bg-neutral-800 rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-gradient-to-br from-accent-100 to-primary-100 dark:from-accent-900 dark:to-primary-900 rounded-xl">
-                      <Briefcase className="w-6 h-6 text-accent-600 dark:text-accent-400" />
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 bg-gradient-to-br from-accent-100 to-primary-100 dark:from-accent-900 dark:to-primary-900 rounded-xl flex-shrink-0">
+                      <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-accent-600 dark:text-accent-400" />
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
+                    <div className="min-w-0">
+                      <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white break-words">
                         {t('experience.freelance.title')}
                       </h3>
-                      <p className="text-lg text-accent-600 dark:text-accent-400 font-medium">
+                      <p className="text-base sm:text-lg text-accent-600 dark:text-accent-400 font-medium">
                         {t('experience.freelance.company')}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
+                  <div className="flex items-center gap-2 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 flex-shrink-0">
                     <Calendar className="w-4 h-4" />
-                    <span>{t('experience.freelance.period')}</span>
+                    <span className="whitespace-nowrap">{t('experience.freelance.period')}</span>
                   </div>
                 </div>
 
