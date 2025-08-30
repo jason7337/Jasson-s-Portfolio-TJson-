@@ -6,7 +6,7 @@ language = "nodejs"
 
 [deployment]
 run = "node start-production.js"
-deploymentTarget = "gce"
+deploymentTarget = "cloudrun"
 
 [packager]
 language = "nodejs"
