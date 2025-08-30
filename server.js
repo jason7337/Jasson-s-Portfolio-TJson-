@@ -30,6 +30,15 @@ process.on('uncaughtException', (error) => {
   process.exit(1);
 });
 
+// Add root endpoint for health checks
+app.get('/', (req, res) => {
+  res.set({
+    'Cache-Control': 'no-cache',
+    'Connection': 'close'
+  });
+  res.status(200).send('OK');
+});
+
 // Serve static files from the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
 

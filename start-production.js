@@ -38,4 +38,18 @@ if (!fs.existsSync(distPath)) {
 
 // Start the Express server
 console.log('🌐 Starting Express server on port 5000...');
-execSync('node server.js', { stdio: 'inherit' });
+
+// Try to start the server with port checking
+try {
+  console.log('🌐 Starting Express server...');
+  execSync('node server.js', { stdio: 'inherit' });
+} catch (error) {
+  if (error.message.includes('EADDRINUSE')) {
+    console.error('❌ Port 5000 is already in use. Please stop the development server first.');
+    console.log('💡 Try running: pkill -f "vite\\|node.*dev" or restart your Repl');
+    process.exit(1);
+  } else {
+    console.error('❌ Failed to start server:', error.message);
+    process.exit(1);
+  }
+}
