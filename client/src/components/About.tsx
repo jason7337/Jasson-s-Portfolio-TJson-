@@ -61,24 +61,24 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="mt-8 p-4 sm:p-6 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950 dark:to-accent-950 rounded-2xl border border-primary-200 dark:border-primary-800"
+              className="mt-6 sm:mt-8 p-3 sm:p-4 lg:p-6 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950 dark:to-accent-950 rounded-xl sm:rounded-2xl border border-primary-200 dark:border-primary-800"
             >
-              <div className="flex flex-col sm:flex-row items-start gap-4">
-                <div className="p-2 sm:p-3 bg-white dark:bg-neutral-800 rounded-xl shadow-md flex-shrink-0">
+              <div className="flex flex-col xs:flex-row items-center xs:items-start gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-white dark:bg-neutral-800 rounded-lg sm:rounded-xl shadow-md flex-shrink-0">
                   <img
                     src="/images/speedygo_logo.png"
                     alt="SpeedyGoApp"
-                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                    className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 object-contain"
                   />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white mb-2">
+                <div className="flex-1 text-center xs:text-left w-full">
+                  <h3 className="text-base xs:text-lg sm:text-xl font-bold text-neutral-900 dark:text-white mb-1 sm:mb-2">
                     SpeedyGoApp
                   </h3>
-                  <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-3">
+                  <p className="text-xs xs:text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-2 sm:mb-3">
                     {t('about.speedygo.role')}
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-2">
+                  <div className="flex flex-col xs:flex-row gap-2 w-full">
                     <a
                       href="https://speedygoapp.com"
                       target="_blank"

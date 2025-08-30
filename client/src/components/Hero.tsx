@@ -5,10 +5,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { MapPin, Globe2, ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { MapPin, Globe2, ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { useResumeGenerator } from '../hooks/useResumeGenerator';
 
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
+  const { generateResume } = useResumeGenerator();
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/jason7337', label: 'GitHub' },
@@ -127,6 +129,15 @@ export const Hero: React.FC = () => {
                 className="px-6 sm:px-8 py-2.5 sm:py-3 bg-white dark:bg-neutral-800 text-primary-600 dark:text-primary-400 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all border border-primary-200 dark:border-primary-800 text-sm sm:text-base"
               >
                 {t('hero.viewWork')}
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={generateResume}
+                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-green-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-green-700 transition-all text-sm sm:text-base inline-flex items-center justify-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                CV
               </motion.button>
             </motion.div>
 

@@ -13,6 +13,18 @@ export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
+  // Close menus when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setIsLangMenuOpen(false);
+      setIsMobileMenuOpen(false);
+    };
+    if (isLangMenuOpen || isMobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [isLangMenuOpen, isMobileMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -47,8 +59,8 @@ export const Navbar: React.FC = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -58,7 +70,7 @@ export const Navbar: React.FC = () => {
             <img
               src="/images/logo_tjson.png"
               alt="TJson Logo"
-              className="h-10 w-auto"
+              className="h-8 sm:h-10 w-auto"
             />
           </motion.div>
 
@@ -78,17 +90,17 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Language Switcher & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             {/* Language Switcher */}
             <div className="relative">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
               >
-                <Globe className="w-4 h-4" />
-                <span className="text-sm font-medium">
+                <Globe className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="text-xs sm:text-sm font-medium">
                   {i18n.language.toUpperCase()}
                 </span>
               </motion.button>
@@ -99,7 +111,7 @@ export const Navbar: React.FC = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute right-0 mt-2 py-2 w-32 bg-white dark:bg-neutral-800 rounded-lg shadow-xl"
+                    className="absolute right-0 mt-2 py-2 w-28 sm:w-32 bg-white dark:bg-neutral-800 rounded-lg shadow-xl z-50"
                   >
                     <button
                       onClick={toggleLanguage}
@@ -116,9 +128,9 @@ export const Navbar: React.FC = () => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200"
+              className="md:hidden p-1.5 sm:p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200"
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
             </motion.button>
           </div>
         </div>
@@ -130,15 +142,15 @@ export const Navbar: React.FC = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white dark:bg-neutral-900 rounded-lg shadow-lg mt-2 overflow-hidden"
+              className="md:hidden bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm rounded-lg shadow-lg mt-2 overflow-hidden border border-neutral-200 dark:border-neutral-700"
             >
-              <div className="py-4 px-4 space-y-2">
+              <div className="py-3 px-3 space-y-1">
                 {navItems.map((item) => (
                   <motion.button
                     key={item}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(item)}
-                    className="block w-full text-left py-2 px-4 rounded-lg text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors capitalize font-medium"
+                    className="block w-full text-left py-2.5 px-3 rounded-lg text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors capitalize font-medium text-sm"
                   >
                     {t(`nav.${item}`)}
                   </motion.button>

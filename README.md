@@ -4,17 +4,20 @@
 
 A modern, elegant, and responsive portfolio website showcasing my work as a Computer Systems Engineering student with 7+ years of software development experience.
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://tjson.com)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://tjson.net)
+[![Portfolio Status](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)](https://tjson.net)
 [![GitHub](https://img.shields.io/github/stars/jason7337/Jasson-s-Portfolio-TJson-?style=for-the-badge)](https://github.com/jason7337/Jasson-s-Portfolio-TJson-)
 
 ## ✨ Features
 
 - **🌐 Multilingual Support** - Spanish and English
 - **🎨 Modern Design** - Clean, elegant UI with smooth animations
-- **📱 Fully Responsive** - Optimized for all devices
+- **📱 Fully Responsive** - Optimized for all devices and screen sizes
 - **⚡ High Performance** - Built with Vite for lightning-fast loading
 - **🎭 Framer Motion** - Beautiful animations and transitions
 - **🌙 Dark/Light Mode** - Adaptive theme support
+- **📄 Resume Download** - Generate and download CV/Resume in both languages
+- **🗂️ PWA Ready** - Progressive Web App with manifest and favicon
 - **📞 Contact Information** - Direct contact details and social links
 - **🔍 SEO Optimized** - Complete meta tags and structured data
 - **♿ Accessible** - WCAG compliant design
@@ -65,7 +68,7 @@ npm run dev
 ```
 
 4. **Open in browser**
-Navigate to `http://localhost:5173`
+Navigate to `http://localhost:5000`
 
 ### Build for Production
 ```bash
@@ -125,6 +128,7 @@ The design system uses a carefully crafted color palette defined in `src/config/
 
 ### Content Updates
 - **Personal Information**: Update `src/i18n/translations.ts`
+- **Resume Data**: Modify resume information in `src/hooks/useResumeGenerator.tsx`
 - **Skills**: Modify the skills array in `Skills.tsx`
 - **Projects**: Update the projects array in `Projects.tsx`
 - **Images**: Replace files in `public/images/`
@@ -137,8 +141,27 @@ The portfolio displays direct contact information including:
 - Social media links (GitHub, LinkedIn)
 - Professional availability status
 - SpeedyGoApp project links
+- **Resume Download**: Users can download my CV/Resume directly from the site
+  - Available in both Spanish and English
+  - Generates HTML format with professional styling
+  - Based on real portfolio data
+
+## 🌐 Live Demo
+
+🎉 **The portfolio is now live at [tjson.net](https://tjson.net)**
+
+### Features Available:
+- ✅ Fully responsive design across all devices
+- ✅ Multilingual support (Spanish/English)
+- ✅ Resume/CV download functionality
+- ✅ Contact information and social links
+- ✅ Project showcase and professional experience
+- ✅ Skills demonstration with interactive categories
 
 ## 🚀 Deployment
+
+### Production Deployment
+The portfolio is currently deployed and accessible at [tjson.net](https://tjson.net)
 
 ### Replit (Recommended for Development)
 1. Fork or import the repository to Replit
@@ -199,10 +222,15 @@ Computer Systems Engineering Student | 7+ Years Software Development Experience
 ### Tech Stack Expertise
 - **Backend**: Python (Flask, FastAPI, Django), Node.js (Express, Nest.js), Java
 - **Frontend**: React.js, TypeScript, Tailwind CSS, Vite, Framer Motion
-- **Mobile**: Flutter, Dart, React Native
+- **Mobile**: Flutter, Dart, React Native, Firebase
 - **Databases**: Firebase, PostgreSQL, MongoDB, MySQL
-- **Cloud & DevOps**: Firebase, AWS, Docker, CI/CD
-- **Tools**: Git, VS Code, Android Studio
+- **Cloud & DevOps**: Firebase, AWS, Docker, CI/CD, GitHub Actions
+- **Tools**: Git, VS Code, Android Studio, Agile/Scrum
+
+### Current Projects
+- 🚀 **Lead Developer** at [SpeedyGoApp](https://speedygoapp.com) - Transport app for Colombia
+- 🌐 **Portfolio Website** - [tjson.net](https://tjson.net) - This responsive portfolio
+- 💼 **Freelance Development** - 20+ completed projects with international clients
 
 ## 🌟 Support
 
@@ -212,4 +240,4 @@ If you like this project, please give it a ⭐ on GitHub!
 
 **Made with ❤️ using React + TypeScript + Vite + TailwindCSS**
 
-*This portfolio demonstrates my expertise in modern web development technologies and serves as a showcase of my professional work and skills.*
+*This portfolio demonstrates my expertise in modern web development technologies and serves as a showcase of my professional work and skills. Visit [tjson.net](https://tjson.net) to see it live and download my resume directly from the site.*
