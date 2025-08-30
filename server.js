@@ -15,10 +15,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Ensure SESSION_SECRET is available for deployment
-const SESSION_SECRET = process.env.SESSION_SECRET || 'replit-portfolio-session-secret-2024';
-if (!process.env.SESSION_SECRET) {
-  console.warn('⚠️  SESSION_SECRET environment variable not set, using default');
+const SESSION_SECRET = process.env.SESSION_SECRET;
+if (!SESSION_SECRET) {
+  console.error('❌ SESSION_SECRET environment variable is required for deployment');
+  process.exit(1);
 }
+console.log('✅ SESSION_SECRET configured for deployment');
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (reason, promise) => {
@@ -79,10 +81,6 @@ app.use(express.static(path.join(__dirname, 'dist'), {
 
 // Handle SPA routes - serve React app for all routes including root
 app.get('*', (req, res) => {
-  // Skip if this is health check endpoint only
-  if (req.path === '/health') {
-    return res.status(404).json({ error: 'Not found' });
-  }
 
   const indexPath = path.join(__dirname, 'dist', 'index.html');
   
@@ -116,25 +114,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Add route to serve React app
-app.get('/app', (req, res) => {
-  const indexPath = path.join(__dirname, 'dist', 'index.html');
-  
-  if (!fs.existsSync(indexPath)) {
-    console.error('❌ Build not found: dist/index.html missing');
-    return res.status(500).json({ 
-      error: 'Application not built',
-      message: 'Please run npm run build'
-    });
-  }
-  
-  res.sendFile(indexPath, (err) => {
-    if (err) {
-      console.error('❌ Error serving React app:', err);
-      res.status(500).json({ error: 'Failed to serve application' });
-    }
-  });
-});
 
 // Start the server with enhanced startup logging
 console.log('🚀 Starting server...');

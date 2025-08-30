@@ -16,6 +16,12 @@ console.log('🚀 Starting production deployment...');
 // Set NODE_ENV to production
 process.env.NODE_ENV = 'production';
 
+// Set SESSION_SECRET for deployment if not already set
+if (!process.env.SESSION_SECRET) {
+  process.env.SESSION_SECRET = 'replit-portfolio-secure-session-' + Date.now() + '-' + Math.random().toString(36).substring(2);
+  console.log('✅ SESSION_SECRET set for deployment');
+}
+
 // Handle errors gracefully
 process.on('unhandledRejection', (reason, promise) => {
   console.error('Unhandled rejection during startup:', reason);
