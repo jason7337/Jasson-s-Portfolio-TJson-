@@ -35,13 +35,14 @@ export const About: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+        <div className="max-w-6xl mx-auto">
+          {/* Bio Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="mb-12"
           >
             <div className="space-y-6">
               <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
@@ -103,15 +104,16 @@ export const About: React.FC = () => {
 
           {/* Stats Grid */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-white dark:bg-neutral-800 rounded-2xl p-6 sm:p-8 shadow-lg"
           >
             <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white mb-6 sm:mb-8 text-center">
               {t('about.highlights.title')}
             </h3>
-            <div className="grid grid-cols-2 gap-3 sm:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -120,7 +122,7 @@ export const About: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-white dark:bg-neutral-800 rounded-2xl p-3 sm:p-6 shadow-lg hover:shadow-xl transition-all"
+                  className="bg-neutral-50 dark:bg-neutral-700 rounded-xl p-4 sm:p-6 hover:shadow-md transition-all text-center"
                 >
                   <div className="flex flex-col items-center text-center">
                     <div className="p-2 sm:p-3 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900 dark:to-accent-900 rounded-xl mb-2 sm:mb-4">
