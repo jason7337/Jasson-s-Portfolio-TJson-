@@ -43,16 +43,7 @@ app.set('trust proxy', 1);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Root endpoint - fast response for deployment health checks
-app.get('/', (req, res) => {
-  res.set({
-    'Cache-Control': 'no-cache, no-store, must-revalidate',
-    'Pragma': 'no-cache',
-    'Expires': '0',
-    'Connection': 'close'
-  });
-  res.status(200).send('OK');
-});
+// Root endpoint will be handled by the catch-all route to serve React app
 
 // Health check endpoint - optimized for deployment
 app.get('/health', (req, res) => {
@@ -86,10 +77,10 @@ app.use(express.static(path.join(__dirname, 'dist'), {
   maxAge: '1h'
 }));
 
-// Handle SPA routes - serve React app for all other routes
+// Handle SPA routes - serve React app for all routes including root
 app.get('*', (req, res) => {
-  // Skip if this is health check or root endpoint
-  if (req.path === '/health' || req.path === '/') {
+  // Skip if this is health check endpoint only
+  if (req.path === '/health') {
     return res.status(404).json({ error: 'Not found' });
   }
 
