@@ -45,9 +45,7 @@ app.set('trust proxy', 1);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Root endpoint will be handled by the catch-all route to serve React app
-
-// Health check endpoint - optimized for deployment
+// Health check endpoint for deployment - fast response
 app.get('/health', (req, res) => {
   res.set({
     'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -79,12 +77,33 @@ app.use(express.static(path.join(__dirname, 'dist'), {
   maxAge: '1h'
 }));
 
-// Handle SPA routes - serve React app for all routes including root
-app.get('*', (req, res) => {
+// Root endpoint - serve React app but also handle health checks
+app.get('/', (req, res) => {
+  // If request includes health check headers, return JSON health status
+  const userAgent = req.get('User-Agent') || '';
+  const isHealthCheck = userAgent.includes('curl') || 
+                       userAgent.includes('health') ||
+                       req.query.health !== undefined ||
+                       req.get('X-Health-Check');
 
+  if (isHealthCheck) {
+    res.set({
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache', 
+      'Expires': '0',
+      'Connection': 'close'
+    });
+    return res.status(200).json({ 
+      status: 'OK', 
+      timestamp: Date.now(),
+      uptime: process.uptime(),
+      message: 'TJson Portfolio is running'
+    });
+  }
+
+  // Otherwise serve React app
   const indexPath = path.join(__dirname, 'dist', 'index.html');
   
-  // Check if build exists
   if (!fs.existsSync(indexPath)) {
     console.error('❌ Build not found: dist/index.html missing');
     return res.status(500).json({ 
@@ -93,7 +112,32 @@ app.get('*', (req, res) => {
     });
   }
   
-  // Serve React app
+  res.set({
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
+  
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      console.error('❌ Error serving React app:', err);
+      res.status(500).json({ error: 'Failed to serve application' });
+    }
+  });
+});
+
+// Handle all other SPA routes - serve React app
+app.get('*', (req, res) => {
+  const indexPath = path.join(__dirname, 'dist', 'index.html');
+  
+  if (!fs.existsSync(indexPath)) {
+    console.error('❌ Build not found: dist/index.html missing');
+    return res.status(500).json({ 
+      error: 'Application not built',
+      message: 'Please run npm run build'
+    });
+  }
+  
   res.set({
     'Cache-Control': 'no-cache, no-store, must-revalidate',
     'Pragma': 'no-cache',
@@ -114,14 +158,12 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-
 // Start the server with enhanced startup logging
 console.log('🚀 Starting server...');
 const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ Server successfully started on http://0.0.0.0:${PORT}`);
   console.log(`🔗 Root endpoint: http://0.0.0.0:${PORT}/`);
   console.log(`❤️  Health check: http://0.0.0.0:${PORT}/health`);
-  console.log(`⚛️  React app: http://0.0.0.0:${PORT}/app`);
   console.log(`📁 Serving from: ${path.join(__dirname, 'dist')}`);
   
   // Verify build exists
