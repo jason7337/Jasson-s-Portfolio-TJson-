@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;  // Cloud Run default port
 
 // Ensure SESSION_SECRET is available for deployment
 const SESSION_SECRET = process.env.SESSION_SECRET;

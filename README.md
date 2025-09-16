@@ -7,6 +7,8 @@ A modern, elegant, and responsive portfolio website showcasing my work as a Comp
 [![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://tjson.net)
 [![Portfolio Status](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)](https://tjson.net)
 [![GitHub](https://img.shields.io/github/stars/jason7337/Jasson-s-Portfolio-TJson-?style=for-the-badge)](https://github.com/jason7337/Jasson-s-Portfolio-TJson-)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
+[![Cloud Run](https://img.shields.io/badge/Cloud%20Run-Optimized-4285F4?style=for-the-badge&logo=google-cloud)](https://cloud.google.com/run)
 
 ## ✨ Features
 
@@ -20,6 +22,8 @@ A modern, elegant, and responsive portfolio website showcasing my work as a Comp
 - **📞 Contact Information** - Direct contact details and social links
 - **🔍 SEO Optimized** - Complete meta tags and structured data
 - **🎯 Interactive Skills** - Categorized skills with smooth transitions
+- **🐳 Docker Support** - Containerized deployment with production optimizations
+- **☁️ Cloud Native** - Ready for Google Cloud Run deployment
 
 ## 🛠️ Tech Stack
 
@@ -29,26 +33,28 @@ A modern, elegant, and responsive portfolio website showcasing my work as a Comp
 - **Vite** - Next-generation frontend tooling
 - **Tailwind CSS** - Utility-first CSS framework
 - **Framer Motion** - Production-ready motion library
+- **Radix UI** - High-quality React components
+
+### Backend & Infrastructure
+- **Node.js** - JavaScript runtime
+- **Express** - Web application framework
+- **Docker** - Container platform
+- **Google Cloud Run** - Serverless container platform
 
 ### Development Tools
 - **ESLint** - Code linting and formatting
 - **PostCSS** - CSS processing
 - **i18next** - Internationalization framework
 - **Lucide React** - Beautiful icon library
-- **Resume Generator** - Custom HTML resume generation
-
-### Deployment
-- **Replit Ready** - Optimized for Replit deployment
-- **Vercel/Netlify Ready** - Optimized for modern hosting platforms
-- **GitHub Pages** - Alternative deployment option
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+- Docker (for containerized deployment)
+- Node.js 20+ (for local development)
+- Google Cloud SDK (optional, for Cloud Run deployment)
 
-### Installation
+### 🐳 Using Docker (Recommended)
 
 1. **Clone the repository**
 ```bash
@@ -56,49 +62,217 @@ git clone https://github.com/jason7337/Jasson-s-Portfolio-TJson-.git
 cd Jasson-s-Portfolio-TJson-
 ```
 
-2. **Install dependencies**
+2. **Run with Docker Compose**
+```bash
+# Development mode with hot reload
+docker-compose -f docker-compose.dev.yml up
+
+# Production mode
+docker-compose up
+```
+
+3. **Access the application**
+- Development: http://localhost:5000
+- Production: http://localhost:8080
+
+### 💻 Traditional Setup
+
+1. **Install dependencies**
 ```bash
 npm install
 ```
 
-3. **Start development server**
+2. **Start development server**
 ```bash
 npm run dev
 ```
 
-4. **Open in browser**
-Navigate to `http://localhost:5000`
-
-### Build for Production
+3. **Build for production**
 ```bash
 npm run build
-npm run preview
+npm run start:production
 ```
+
+## 🐳 Docker Commands
+
+### Build Image
+```bash
+docker build -t portfolio:latest .
+```
+
+### Run Container
+```bash
+docker run -d \
+  --name portfolio \
+  -p 8080:8080 \
+  -e SESSION_SECRET=your-secret-key \
+  portfolio:latest
+```
+
+### View Logs
+```bash
+docker logs -f portfolio
+```
+
+### Health Check
+```bash
+curl http://localhost:8080/health
+```
+
+## ☁️ Google Cloud Run Deployment
+
+### Prerequisites
+1. Google Cloud Project with billing enabled
+2. Cloud Run API enabled
+3. Container Registry API enabled
+4. gcloud CLI authenticated
+
+### Deployment Steps
+
+1. **Configure gcloud**
+```bash
+gcloud config set project YOUR-PROJECT-ID
+gcloud auth configure-docker
+```
+
+2. **Build and Push Image**
+```bash
+# Using Cloud Build (recommended)
+gcloud builds submit --config cloudbuild.yaml
+
+# OR Manual build and push
+docker build -t gcr.io/YOUR-PROJECT-ID/portfolio:latest .
+docker push gcr.io/YOUR-PROJECT-ID/portfolio:latest
+```
+
+3. **Deploy to Cloud Run**
+```bash
+gcloud run deploy portfolio \
+  --image gcr.io/YOUR-PROJECT-ID/portfolio:latest \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --port 8080 \
+  --memory 512Mi \
+  --min-instances 0 \
+  --max-instances 10
+```
+
+4. **Set Environment Variables**
+```bash
+gcloud run services update portfolio \
+  --update-env-vars SESSION_SECRET=your-production-secret \
+  --region us-central1
+```
+
+### Continuous Deployment
+
+The repository includes `cloudbuild.yaml` for automated deployments:
+
+1. **Connect GitHub Repository**
+```bash
+gcloud builds triggers create github \
+  --repo-name=portfolio \
+  --repo-owner=yourusername \
+  --branch-pattern="^main$" \
+  --build-config=cloudbuild.yaml
+```
+
+2. **Push to main branch** - Automatically triggers build and deployment
 
 ## 📁 Project Structure
 
 ```
-client/
-├── public/
-│   └── images/           # Profile photos and logos
-├── src/
-│   ├── components/       # React components
-│   │   ├── About.tsx
-│   │   ├── Contact.tsx
-│   │   ├── Experience.tsx
-│   │   ├── Hero.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── Projects.tsx
-│   │   └── Skills.tsx
-│   ├── config/
-│   │   └── colors.ts     # Color palette configuration
-│   ├── i18n/
-│   │   ├── index.ts      # i18n configuration
-│   │   └── translations.ts # Translation files
-│   ├── App.tsx           # Main application component
-│   └── main.tsx          # Application entry point
-├── index.html            # HTML template
-└── package.json          # Dependencies and scripts
+portfolio/
+├── client/                  # React application source
+│   └── src/
+│       ├── components/      # React components
+│       ├── hooks/           # Custom React hooks
+│       ├── lib/             # Utilities and helpers
+│       └── pages/           # Page components
+├── public/                  # Static assets
+├── dist/                    # Build output
+├── server.js                # Express server
+├── start-production.js      # Production startup script
+├── Dockerfile               # Production container config
+├── Dockerfile.dev           # Development container config
+├── docker-compose.yml       # Production orchestration
+├── docker-compose.dev.yml   # Development orchestration
+├── cloudbuild.yaml          # Cloud Build configuration
+├── .dockerignore            # Docker ignore rules
+├── .gcloudignore           # Cloud Build ignore rules
+└── package.json            # Dependencies and scripts
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PORT` | Server port | `8080` |
+| `NODE_ENV` | Environment mode | `production` |
+| `SESSION_SECRET` | Session encryption key | Required in production |
+
+### Docker Configuration
+
+The application uses multi-stage builds for optimal image size:
+- **Builder stage**: Compiles TypeScript and bundles assets
+- **Production stage**: Minimal runtime with only necessary files (~150MB)
+
+### Security Features
+
+- ✅ Non-root user execution in containers
+- ✅ Health check endpoints for monitoring
+- ✅ Proper signal handling with dumb-init
+- ✅ Session security with encrypted cookies
+- ✅ Optimized layer caching
+
+## 📊 Performance Optimizations
+
+- **Code Splitting**: Optimal bundle sizes with dynamic imports
+- **Asset Caching**: Immutable headers for static assets
+- **Lazy Loading**: Heavy components loaded on demand
+- **Image Optimization**: Responsive loading strategies
+- **Minimal Docker Image**: Alpine-based image (~150MB)
+- **Build Caching**: Multi-stage Docker builds with layer optimization
+
+## 🧪 Development Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+npm run type-check   # Run TypeScript checks
+```
+
+## 🔍 Troubleshooting
+
+### Port Already in Use
+```bash
+# Find process using port
+lsof -i :8080
+# Kill process
+kill -9 PID
+```
+
+### Docker Build Issues
+```bash
+# Clean build cache
+docker builder prune -a
+
+# Rebuild without cache
+docker build --no-cache -t portfolio:latest .
+```
+
+### Cloud Run Issues
+```bash
+# View service logs
+gcloud logging read "resource.type=cloud_run_revision" --limit 50
+
+# Describe service
+gcloud run services describe portfolio --region us-central1
 ```
 
 ## 🌍 Internationalization
@@ -110,16 +284,10 @@ The portfolio supports both Spanish and English:
 - **Translation Files**: `src/i18n/translations.ts`
 - **Language Switcher**: Available in the navigation bar
 
-To add a new language:
-1. Add translations to `src/i18n/translations.ts`
-2. Update the language switcher in `Navbar.tsx`
-3. Add the new locale to `src/i18n/index.ts`
-
 ## 🎨 Customization
 
 ### Color Palette
 The design system uses a carefully crafted color palette defined in `src/config/colors.ts`:
-
 - **Primary**: Blue tones (#0ea5e9)
 - **Accent**: Purple tones (#a855f7)
 - **Neutral**: Gray scale for text and backgrounds
@@ -135,15 +303,11 @@ The design system uses a carefully crafted color palette defined in `src/config/
 ## 📞 Contact Information
 
 The portfolio displays direct contact information including:
-
 - Email and phone contact details
 - Social media links (GitHub, LinkedIn)
 - Professional availability status
 - SpeedyGoApp project links
-- **Resume Download**: Users can download my CV/Resume directly from the site
-  - Available in both Spanish and English
-  - Generates HTML format with professional styling
-  - Based on real portfolio data
+- **Resume Download**: Users can download CV/Resume directly in both languages
 
 ## 🌐 Live Demo
 
@@ -156,44 +320,6 @@ The portfolio displays direct contact information including:
 - ✅ Contact information and social links
 - ✅ Project showcase and professional experience
 - ✅ Skills demonstration with interactive categories
-
-## 🚀 Deployment
-
-### Production Deployment
-The portfolio is currently deployed and accessible at [tjson.net](https://tjson.net)
-
-### Replit (Recommended for Development)
-1. Fork or import the repository to Replit
-2. The project includes optimized configuration files:
-   - `.replit` - Main configuration file
-   - `replit.nix` - Environment dependencies
-   - `.replitignore` - Files to exclude from upload
-3. Click "Run" to start the development server
-4. For production deployment, use the "Deploy" tab in Replit
-
-### Vercel
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Deploy automatically
-
-### Netlify
-1. Build the project: `npm run build`
-2. Deploy the `dist` folder to Netlify
-
-### GitHub Pages
-1. Install gh-pages: `npm install --save-dev gh-pages`
-2. Add deploy script to package.json:
-```json
-"deploy": "gh-pages -d dist"
-```
-3. Run: `npm run build && npm run deploy`
-
-## 📊 Performance
-
-- **High Performance**: Built with Vite for fast loading and smooth animations
-- **Responsive Design**: Optimized for mobile, tablet, and desktop devices
-- **SEO Optimized**: Complete meta tags, structured data, and favicon support
-- **Multilingual**: Seamless language switching with persistent user preference
 
 ## 🤝 Contributing
 
@@ -209,7 +335,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 About Me
 
-**Jasson Armando Gómez Guevara**  
+**Jasson Armando Gómez Guevara**
 Computer Systems Engineering Student | 7+ Years Software Development Experience
 
 - 🌍 **Location**: El Salvador
@@ -224,7 +350,7 @@ Computer Systems Engineering Student | 7+ Years Software Development Experience
 - **Frontend**: React.js, TypeScript, Tailwind CSS, Vite, Framer Motion
 - **Mobile**: Flutter, Dart, React Native, Firebase
 - **Databases**: Firebase, PostgreSQL, MongoDB, MySQL
-- **Cloud & DevOps**: Firebase, AWS, Docker, CI/CD, GitHub Actions
+- **Cloud & DevOps**: Docker, Google Cloud Run, Firebase, AWS, CI/CD
 - **Tools**: Git, VS Code, Android Studio, Agile/Scrum
 
 ### Current Projects
@@ -238,6 +364,6 @@ If you like this project, please give it a ⭐ on GitHub!
 
 ---
 
-**Made with ❤️ using React + TypeScript + Vite + TailwindCSS**
+**Made with ❤️ using React + TypeScript + Vite + TailwindCSS + Docker**
 
-*This portfolio demonstrates my expertise in modern web development technologies and serves as a showcase of my professional work and skills. Visit [tjson.net](https://tjson.net) to see it live and download my resume directly from the site.*
+*This portfolio demonstrates my expertise in modern web development technologies and cloud-native deployment. Visit [tjson.net](https://tjson.net) to see it live and download my resume directly from the site.*

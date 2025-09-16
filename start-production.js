@@ -116,13 +116,13 @@ try {
   
   // Import and start the server
   try {
-    execSync('node server.js', { 
-      stdio: 'inherit', 
+    execSync('node server.js', {
+      stdio: 'inherit',
       cwd: __dirname,
-      env: { 
-        ...process.env, 
+      env: {
+        ...process.env,
         NODE_ENV: 'production',
-        PORT: process.env.PORT || '5000'
+        PORT: process.env.PORT || '8080'  // Changed default port for Cloud Run
       }
     });
   } catch (serverError) {
