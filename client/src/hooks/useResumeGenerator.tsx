@@ -1,7 +1,3 @@
-/**
- * Hook for generating and downloading resume/CV
- */
-
 import { useTranslation } from 'react-i18next';
 
 export const useResumeGenerator = () => {

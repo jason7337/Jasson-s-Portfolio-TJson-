@@ -1,6 +1,0 @@
-# Modern Replit configuration file
-# This file provides deployment configuration for the TJson Portfolio
-
-[deployment]
-deploymentTarget = "gce"
-run = "node start-production.js"

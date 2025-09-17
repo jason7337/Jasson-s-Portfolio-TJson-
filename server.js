@@ -1,8 +1,3 @@
-/**
- * Production Express server for Replit deployment
- * Optimized for fast health checks and reliable static file serving
- */
-
 import express from 'express';
 import path from 'path';
 import fs from 'fs';

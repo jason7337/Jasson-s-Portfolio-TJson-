@@ -1,7 +1,3 @@
-/**
- * Contact section component - Solo información de contacto
- */
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';

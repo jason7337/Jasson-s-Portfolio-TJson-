@@ -1,8 +1,3 @@
-/**
- * Color palette configuration for TJson Portfolio
- * Modern, elegant color scheme with dark/light mode support
- */
-
 export const colors = {
   // Primary colors - Deep blue/purple gradient
   primary: {

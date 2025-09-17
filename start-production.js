@@ -1,8 +1,3 @@
-/**
- * Production startup script for Replit deployment
- * Ensures proper build and server startup for deployment
- */
-
 import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';

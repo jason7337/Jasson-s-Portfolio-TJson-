@@ -1,7 +1,3 @@
-/**
- * Navigation bar component with language switcher
- */
-
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
