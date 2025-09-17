@@ -1,6 +1,9 @@
 # Build stage - Optimized for caching and minimal rebuild time
 FROM node:20-alpine AS builder
 
+# Install build dependencies
+RUN apk add --no-cache python3 make g++
+
 # Set working directory
 WORKDIR /app
 
@@ -8,14 +11,18 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install ALL dependencies including devDependencies for build
-RUN npm ci && \
+# Use npm ci for reproducible builds
+RUN npm ci --only=production --omit=dev && \
+    npm ci && \
     npm cache clean --force
 
 # Copy source code after dependencies are installed
 COPY . .
 
 # Build the application with production optimizations
-RUN npm run build
+RUN npm run build && \
+    rm -rf node_modules && \
+    npm ci --only=production --omit=dev
 
 # Production stage - Minimal runtime image
 FROM node:20-alpine AS production

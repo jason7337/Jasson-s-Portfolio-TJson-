@@ -6,8 +6,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Build outputs
-dist/
+# Build outputs (keep dist for multi-stage build)
 build/
 *.local
 
