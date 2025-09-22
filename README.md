@@ -110,7 +110,3 @@ This portfolio represents professional work and personal branding. While the cod
 ## 📜 License
 
 MIT License - Feel free to use this code as reference for your own portfolio projects.
-
----
-
-*© 2025 Jasson Gómez*
