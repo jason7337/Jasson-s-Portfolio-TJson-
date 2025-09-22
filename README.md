@@ -113,4 +113,4 @@ MIT License - Feel free to use this code as reference for your own portfolio pro
 
 ---
 
-*Built with ❤️ by Jasson Gómez • Last updated: 2025*
+*© 2025 Jasson Gómez*
