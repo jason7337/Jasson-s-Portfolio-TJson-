@@ -1,19 +1,28 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { MapPin, Globe2, ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { useResumeGenerator } from '../hooks/useResumeGenerator';
 
+/**
+ * Hero section component
+ * Displays introduction, social links, and resume download functionality
+ */
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
   const { generateResume } = useResumeGenerator();
 
+  // Social media and contact links
   const socialLinks = [
     { icon: Github, href: 'https://github.com/jason7337', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/jasson-gomez-211777209/', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:gomezjason010@gmail.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:gomezjason010@gmail.com', label: 'Email' },
   ];
 
+  /**
+   * Navigate to specific section with smooth scrolling
+   */
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -22,13 +31,25 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      aria-label="Hero section - Introduction"
+      role="banner"
+    >
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-primary-950">
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-primary-950"
+        aria-hidden="true"
+      >
         <div className="absolute inset-0 opacity-30">
-          <div className="w-full h-full" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+            aria-hidden="true"
+          ></div>
         </div>
       </div>
 
@@ -55,6 +76,8 @@ export const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="text-4xl sm:text-5xl lg:text-7xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent mb-4"
+              role="heading"
+              aria-level={1}
             >
               {t('hero.name')}
             </motion.h1>
@@ -115,6 +138,7 @@ export const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('contact')}
                 className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all text-sm sm:text-base"
+                aria-label="Contact me - Navigate to contact section"
               >
                 {t('hero.cta')}
               </motion.button>
@@ -123,6 +147,7 @@ export const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('projects')}
                 className="px-6 sm:px-8 py-2.5 sm:py-3 bg-white dark:bg-neutral-800 text-primary-600 dark:text-primary-400 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all border border-primary-200 dark:border-primary-800 text-sm sm:text-base"
+                aria-label="View my work - Navigate to projects section"
               >
                 {t('hero.viewWork')}
               </motion.button>
@@ -131,8 +156,9 @@ export const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={generateResume}
                 className="px-6 sm:px-8 py-2.5 sm:py-3 bg-green-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-green-700 transition-all text-sm sm:text-base inline-flex items-center justify-center gap-2"
+                aria-label="Download my resume/CV in current language"
               >
-                <Download className="w-4 h-4" />
+                <Download className="w-4 h-4" aria-hidden="true" />
                 CV
               </motion.button>
             </motion.div>
@@ -143,6 +169,8 @@ export const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
               className="flex gap-4 justify-center lg:justify-start"
+              role="list"
+              aria-label="Social media links"
             >
               {socialLinks.map((link, index) => (
                 <motion.a
@@ -156,8 +184,10 @@ export const Hero: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1 + index * 0.1 }}
                   className="p-3 bg-neutral-100 dark:bg-neutral-800 rounded-full text-neutral-600 dark:text-neutral-400 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-all"
+                  aria-label={`Visit my ${link.label} profile`}
+                  role="listitem"
                 >
-                  <link.icon className="w-5 h-5" />
+                  <link.icon className="w-5 h-5" aria-hidden="true" />
                 </motion.a>
               ))}
             </motion.div>
@@ -177,21 +207,23 @@ export const Hero: React.FC = () => {
               transition={{
                 duration: 6,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: 'easeInOut',
               }}
               className="relative"
             >
               {/* Decorative Elements */}
               <div className="absolute -inset-4 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full blur-3xl opacity-20"></div>
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full blur-xl opacity-30"></div>
-              
+
               {/* Profile Image */}
               <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-2xl max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:max-w-none">
                 <img
                   src="/images/profile.jpg"
-                  alt="Jasson Gómez"
+                  alt="Professional portrait of Jasson Gómez, Senior Full Stack Developer"
                   className="w-full h-full object-cover"
                   style={{ aspectRatio: '1/1' }}
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
 
@@ -203,7 +235,7 @@ export const Hero: React.FC = () => {
                 transition={{
                   duration: 20,
                   repeat: Infinity,
-                  ease: "linear"
+                  ease: 'linear',
                 }}
                 className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full opacity-20 blur-xl"
               />
@@ -214,7 +246,7 @@ export const Hero: React.FC = () => {
                 transition={{
                   duration: 25,
                   repeat: Infinity,
-                  ease: "linear"
+                  ease: 'linear',
                 }}
                 className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-accent-400 to-primary-400 rounded-full opacity-20 blur-xl"
               />
@@ -236,7 +268,7 @@ export const Hero: React.FC = () => {
             transition={{
               duration: 2,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: 'easeInOut',
             }}
             className="cursor-pointer"
             onClick={() => scrollToSection('about')}

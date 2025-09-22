@@ -5,60 +5,61 @@ export const useResumeGenerator = () => {
 
   const generateResume = () => {
     const currentLang = i18n.language;
-    
+
     const resumeData = {
       personal: {
         name: 'Jasson Armando Gómez Guevara',
-        title: currentLang === 'es' 
-          ? 'Desarrollador Full Stack Senior' 
-          : 'Senior Full Stack Developer',
+        title: currentLang === 'es' ? 'Desarrollador Full Stack Senior' : 'Senior Full Stack Developer',
         email: 'gomezjason010@gmail.com',
         phone: '+503 7502 5302',
         location: 'El Salvador',
         website: 'https://tjson.net',
         github: 'https://github.com/jason7337',
-        linkedin: 'https://linkedin.com/in/jasson-gomez-211777209'
+        linkedin: 'https://linkedin.com/in/jasson-gomez-211777209',
       },
-      summary: currentLang === 'es'
-        ? 'Estudiante de Ingeniería de Sistemas Informáticos con más de 7 años de experiencia en desarrollo de software. Especializado en construir aplicaciones escalables con tecnologías modernas, desde arquitecturas de microservicios hasta interfaces de usuario intuitivas.'
-        : 'Computer Systems Engineering student with over 7 years of experience in software development. Specialized in building scalable applications with modern technologies, from microservices architectures to intuitive user interfaces.',
+      summary:
+        currentLang === 'es'
+          ? 'Estudiante de Ingeniería de Sistemas Informáticos con más de 7 años de experiencia en desarrollo de software. Especializado en construir aplicaciones escalables con tecnologías modernas, desde arquitecturas de microservicios hasta interfaces de usuario intuitivas.'
+          : 'Computer Systems Engineering student with over 7 years of experience in software development. Specialized in building scalable applications with modern technologies, from microservices architectures to intuitive user interfaces.',
       experience: [
         {
           title: currentLang === 'es' ? 'Desarrollador Principal' : 'Lead Developer',
           company: 'SpeedyGoApp',
           period: currentLang === 'es' ? 'Presente' : 'Present',
-          achievements: currentLang === 'es' 
-            ? [
-                'Desarrollé aplicación móvil completa con Flutter y Dart',
-                'Implementé arquitectura backend con Firebase',
-                'Integré rastreo en tiempo real con Google Maps API',
-                'Lanzamiento exitoso en Nariño, Colombia'
-              ]
-            : [
-                'Developed complete mobile application with Flutter and Dart',
-                'Implemented Firebase backend architecture',
-                'Integrated real-time tracking with Google Maps API',
-                'Successfully launched in Nariño, Colombia'
-              ]
+          achievements:
+            currentLang === 'es'
+              ? [
+                  'Desarrollé aplicación móvil completa con Flutter y Dart',
+                  'Implementé arquitectura backend con Firebase',
+                  'Integré rastreo en tiempo real con Google Maps API',
+                  'Lanzamiento exitoso en Nariño, Colombia',
+                ]
+              : [
+                  'Developed complete mobile application with Flutter and Dart',
+                  'Implemented Firebase backend architecture',
+                  'Integrated real-time tracking with Google Maps API',
+                  'Successfully launched in Nariño, Colombia',
+                ],
         },
         {
           title: currentLang === 'es' ? 'Desarrollador Full Stack Senior' : 'Senior Full Stack Developer',
           company: 'Freelance',
           period: currentLang === 'es' ? '7+ años' : '7+ years',
-          achievements: currentLang === 'es'
-            ? [
-                'Entregué 20+ proyectos exitosos',
-                'Especializado en ecosistemas React.js y Node.js',
-                'Implementé arquitecturas de microservicios',
-                'Integré soluciones de IA para optimización de procesos'
-              ]
-            : [
-                'Delivered 20+ successful projects',
-                'Specialized in React.js and Node.js ecosystems',
-                'Implemented microservices architectures',
-                'Integrated AI solutions for process optimization'
-              ]
-        }
+          achievements:
+            currentLang === 'es'
+              ? [
+                  'Entregué 20+ proyectos exitosos',
+                  'Especializado en ecosistemas React.js y Node.js',
+                  'Implementé arquitecturas de microservicios',
+                  'Integré soluciones de IA para optimización de procesos',
+                ]
+              : [
+                  'Delivered 20+ successful projects',
+                  'Specialized in React.js and Node.js ecosystems',
+                  'Implemented microservices architectures',
+                  'Integrated AI solutions for process optimization',
+                ],
+        },
       ],
       skills: {
         backend: ['Python', 'Node.js', 'Java', 'APIs RESTful', 'GraphQL', 'Microservices'],
@@ -66,8 +67,8 @@ export const useResumeGenerator = () => {
         mobile: ['Flutter', 'Dart', 'React Native'],
         database: ['Firebase', 'PostgreSQL', 'MongoDB', 'MySQL'],
         cloud: ['Firebase', 'AWS', 'Docker', 'CI/CD'],
-        tools: ['Git', 'VS Code', 'Android Studio', 'Agile/Scrum']
-      }
+        tools: ['Git', 'VS Code', 'Android Studio', 'Agile/Scrum'],
+      },
     };
 
     const htmlContent = generateHTMLResume(resumeData, currentLang);
@@ -76,7 +77,7 @@ export const useResumeGenerator = () => {
 
   const generateHTMLResume = (data: any, lang: string) => {
     const isSpanish = lang === 'es';
-    
+
     return `
 <!DOCTYPE html>
 <html lang="${lang}">
@@ -152,7 +153,9 @@ export const useResumeGenerator = () => {
 
         <div class="section">
             <h3>${isSpanish ? 'Experiencia Profesional' : 'Professional Experience'}</h3>
-            ${data.experience.map((exp: any) => `
+            ${data.experience
+              .map(
+                (exp: any) => `
                 <div class="experience-item">
                     <h4>${exp.title} <span class="company">@ ${exp.company}</span></h4>
                     <div class="period">${exp.period}</div>
@@ -160,7 +163,9 @@ export const useResumeGenerator = () => {
                         ${exp.achievements.map((achievement: string) => `<li>${achievement}</li>`).join('')}
                     </ul>
                 </div>
-            `).join('')}
+            `,
+              )
+              .join('')}
         </div>
 
         <div class="section">
@@ -213,10 +218,8 @@ export const useResumeGenerator = () => {
     const blob = new Blob([htmlContent], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    const fileName = lang === 'es' 
-      ? 'Jasson_Gomez_CV_ES.html' 
-      : 'Jasson_Gomez_Resume_EN.html';
-    
+    const fileName = lang === 'es' ? 'Jasson_Gomez_CV_ES.html' : 'Jasson_Gomez_Resume_EN.html';
+
     link.href = url;
     link.download = fileName;
     link.click();

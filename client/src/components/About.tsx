@@ -1,7 +1,7 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Calendar, Code2, Globe, Users } from 'lucide-react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const About: React.FC = () => {
   const { t } = useTranslation();
@@ -10,7 +10,7 @@ export const About: React.FC = () => {
     { icon: Calendar, label: 'experience', value: '7+' },
     { icon: Code2, label: 'projects', value: '20+' },
     { icon: Globe, label: 'technologies', value: '20+' },
-    { icon: Users, label: 'remote', value: '100%' }
+    { icon: Users, label: 'remote', value: '100%' },
   ];
 
   return (
@@ -26,9 +26,7 @@ export const About: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             {t('about.title')}
           </h2>
-          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400">
-            {t('about.subtitle')}
-          </p>
+          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400">{t('about.subtitle')}</p>
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
@@ -69,9 +67,7 @@ export const About: React.FC = () => {
                   />
                 </div>
                 <div className="flex-1 text-center sm:text-left">
-                  <h3 className="text-xl lg:text-2xl font-bold text-neutral-900 dark:text-white mb-2">
-                    SpeedyGoApp
-                  </h3>
+                  <h3 className="text-xl lg:text-2xl font-bold text-neutral-900 dark:text-white mb-2">SpeedyGoApp</h3>
                   <p className="text-base lg:text-lg text-neutral-600 dark:text-neutral-400 mb-4 lg:mb-6">
                     {t('about.speedygo.role')}
                   </p>
@@ -82,7 +78,7 @@ export const About: React.FC = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium flex-1 sm:flex-initial sm:min-w-[140px]"
                     >
-{t('about.speedygo.visitWebsite')}
+                      {t('about.speedygo.visitWebsite')}
                     </a>
                     <a
                       href="https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp"
@@ -90,7 +86,7 @@ export const About: React.FC = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium flex-1 sm:flex-initial sm:min-w-[140px]"
                     >
-{t('about.speedygo.googlePlay')}
+                      {t('about.speedygo.googlePlay')}
                     </a>
                   </div>
                 </div>

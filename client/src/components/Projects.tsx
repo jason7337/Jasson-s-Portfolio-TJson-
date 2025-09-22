@@ -1,7 +1,7 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Code2 } from 'lucide-react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ export const Projects: React.FC = () => {
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
       github: 'https://github.com/jason7337/Jasson-s-Portfolio-TJson-.git',
       live: 'https://tjson.net',
-      featured: true
+      featured: true,
     },
     {
       title: 'SpeedyGoApp',
@@ -23,8 +23,8 @@ export const Projects: React.FC = () => {
       technologies: ['Flutter', 'Dart', 'Firebase', 'Google Maps API'],
       github: '#',
       live: 'https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp',
-      featured: true
-    }
+      featured: true,
+    },
   ];
 
   return (
@@ -40,9 +40,7 @@ export const Projects: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             {t('projects.title')}
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            {t('projects.subtitle')}
-          </p>
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">{t('projects.subtitle')}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -82,9 +80,7 @@ export const Projects: React.FC = () => {
               {/* Content */}
               <div className="p-4 sm:p-5 lg:p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white">
-                    {project.title}
-                  </h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white">{project.title}</h3>
                 </div>
 
                 <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-2">
@@ -128,7 +124,7 @@ export const Projects: React.FC = () => {
                       className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-600 rounded-lg cursor-not-allowed text-sm"
                     >
                       <Code2 className="w-4 h-4" />
-<span className="text-sm font-medium">{t('projects.private')}</span>
+                      <span className="text-sm font-medium">{t('projects.private')}</span>
                     </button>
                   )}
                   {project.live !== '#' ? (
@@ -149,7 +145,7 @@ export const Projects: React.FC = () => {
                       className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 dark:text-neutral-600 rounded-lg cursor-not-allowed text-sm"
                     >
                       <ExternalLink className="w-4 h-4" />
-<span className="text-sm font-medium">{t('projects.comingSoon')}</span>
+                      <span className="text-sm font-medium">{t('projects.comingSoon')}</span>
                     </button>
                   )}
                 </div>
@@ -173,7 +169,7 @@ export const Projects: React.FC = () => {
             className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-700 transition-colors shadow-lg hover:shadow-xl"
           >
             <Github className="w-5 h-5" />
-<span className="font-medium">{t('projects.viewMore')}</span>
+            <span className="font-medium">{t('projects.viewMore')}</span>
           </a>
         </motion.div>
       </div>

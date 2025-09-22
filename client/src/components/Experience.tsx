@@ -1,7 +1,7 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, CheckCircle, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Experience: React.FC = () => {
   const { t } = useTranslation();
@@ -19,9 +19,7 @@ export const Experience: React.FC = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             {t('experience.title')}
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            {t('experience.subtitle')}
-          </p>
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">{t('experience.subtitle')}</p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -63,9 +61,7 @@ export const Experience: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-neutral-700 dark:text-neutral-300 mb-6">
-                  {t('experience.speedygo.description')}
-                </p>
+                <p className="text-neutral-700 dark:text-neutral-300 mb-6">{t('experience.speedygo.description')}</p>
 
                 <div className="space-y-3 mb-6">
                   {['designed', 'developed', 'implemented', 'built'].map((key, index) => (
@@ -92,7 +88,7 @@ export const Experience: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm sm:text-base"
                   >
-<span>{t('experience.speedygo.website')}</span>
+                    <span>{t('experience.speedygo.website')}</span>
                     <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                   </a>
                   <a
@@ -101,7 +97,7 @@ export const Experience: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm sm:text-base"
                   >
-<span>{t('experience.speedygo.playStore')}</span>
+                    <span>{t('experience.speedygo.playStore')}</span>
                     <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                   </a>
                 </div>
@@ -143,9 +139,7 @@ export const Experience: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-neutral-700 dark:text-neutral-300 mb-6">
-                  {t('experience.freelance.description')}
-                </p>
+                <p className="text-neutral-700 dark:text-neutral-300 mb-6">{t('experience.freelance.description')}</p>
 
                 <div className="space-y-3">
                   {['delivered', 'specialized', 'implemented', 'integrated'].map((key, index) => (

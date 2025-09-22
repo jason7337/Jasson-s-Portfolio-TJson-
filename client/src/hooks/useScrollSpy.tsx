@@ -5,7 +5,7 @@ export function useScrollSpy(sectionIds: string[], offset: number = 100) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = sectionIds.map(id => document.getElementById(id));
+      const sections = sectionIds.map((id) => document.getElementById(id));
       const scrollPosition = window.scrollY + offset;
 
       for (let i = sections.length - 1; i >= 0; i--) {

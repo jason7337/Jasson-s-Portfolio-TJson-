@@ -34,7 +34,7 @@
   }
 
   .bg-gradient-mesh {
-    background: 
+    background:
       radial-gradient(at 40% 20%, rgba(168, 85, 247, 0.3) 0px, transparent 50%),
       radial-gradient(at 80% 0%, rgba(59, 130, 246, 0.2) 0px, transparent 50%),
       radial-gradient(at 0% 50%, rgba(236, 72, 153, 0.2) 0px, transparent 50%);

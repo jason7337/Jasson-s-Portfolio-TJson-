@@ -31,11 +31,7 @@ const SplashScreen: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
       }`}
     >
       <div className="animate-pulse">
-        <img
-          src="/images/logo_tjson.png"
-          alt="TJson Logo"
-          className="w-48 h-48 object-contain"
-        />
+        <img src="/images/logo_tjson.png" alt="TJson Logo" className="w-48 h-48 object-contain" />
       </div>
     </div>
   );

@@ -1,96 +1,116 @@
-# Jasson Gómez Portfolio
+# 🚀 Jasson Gómez - Senior Full Stack Developer Portfolio
 
 ![TJson Logo](public/images/logo-bg.png)
 
-Portfolio web profesional desarrollado con tecnologías modernas. Muestra mi experiencia como Ingeniero en Sistemas de Computación con más de 7 años en desarrollo de software.
+Modern, high-performance portfolio showcasing 7+ years of enterprise software development expertise. Built with cutting-edge technologies and optimized for Cloud Run deployment.
 
-## Tecnologías
+## ⚡ Tech Stack
 
-- **Frontend**: React 18, TypeScript, Vite, Tailwind CSS
-- **Backend**: Node.js, Express
-- **Infraestructura**: Docker, Google Cloud Run
-- **Herramientas**: Git, VS Code, Figma
+- **Frontend**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS + Framer Motion
+- **Backend**: Node.js + Express
+- **Infrastructure**: Docker + Google Cloud Run
+- **Internationalization**: React i18next (EN/ES)
 
-## Características
+## ✨ Key Features
 
-- Diseño responsive optimizado para todos los dispositivos
-- Soporte multiidioma (Español/Inglés)
-- Generación y descarga de CV en PDF
-- Formulario de contacto funcional
-- Animaciones fluidas con Framer Motion
-- PWA con manifest y service worker
+- **🎨 Premium Design**: Glassmorphism effects with smooth animations
+- **📱 Fully Responsive**: Optimized for all devices and screen sizes
+- **🌍 Multilingual**: Dynamic Spanish/English language switching
+- **📄 Smart CV Generator**: Contextual resume generation and download
+- **🔒 Security First**: CSP headers, HTTPS enforcement, XSS protection
+- **⚡ Performance**: Optimized builds with code splitting and lazy loading
+- **♿ Accessibility**: ARIA compliant with semantic HTML structure
+- **🔍 SEO Optimized**: Structured data, Open Graph, and meta tags
 
-## Desarrollo Local
+## 🛠️ Development Setup
 
 ```bash
-# Clonar repositorio
+# Clone the repository
 git clone https://github.com/jason7337/Jasson-s-Portfolio-TJson-.git
 cd Jasson-s-Portfolio-TJson-
 
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Iniciar servidor de desarrollo
+# Start development server
 npm run dev
+# Visit http://localhost:5000
 ```
 
-## Docker
+## 🐳 Docker Production
 
 ```bash
-# Construir imagen
-docker build -t portfolio .
+# Build optimized image
+docker build -t tjson-portfolio .
 
-# Ejecutar contenedor
-docker run -p 8080:8080 -e SESSION_SECRET=dev portfolio
-
-# Con script incluido
-./test-local.sh docker
+# Run container
+docker run -p 8080:8080 -e SESSION_SECRET=your-secret tjson-portfolio
 ```
 
-## Despliegue
+## ☁️ Cloud Run Deployment
 
 ```bash
-# Google Cloud Run
+# Automatic deployment
 ./deploy.sh YOUR_PROJECT_ID
 
-# O manualmente
-gcloud run deploy portfolio --source .
+# Manual deployment
+gcloud run deploy portfolio \
+  --source . \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated
 ```
 
-## Sobre Mí
+## 👨‍💻 About Me
 
 **Jasson Armando Gómez Guevara**
-Ingeniero en Sistemas de Computación | Lead Developer
+*Enterprise Software Architect & Lead Developer*
 
-- 📍 El Salvador
-- 💼 7+ años de experiencia en desarrollo
-- 🚀 Lead Developer en [SpeedyGoApp](https://speedygoapp.com)
-- 🌐 Especializado en desarrollo Full Stack
-- 📱 Desarrollo móvil con Flutter y React Native
+Senior Full Stack Developer with 7+ years of hands-on experience delivering production-ready applications for international clients. Currently leading technical initiatives at SpeedyGoApp while pursuing formal Computer Systems Engineering credentials.
 
-### Stack Técnico
+### 🎯 Expertise
 
-**Backend**: Python (Flask, FastAPI, Django), Node.js, Java
-**Frontend**: React, TypeScript, Vue.js, Angular
-**Mobile**: Flutter, React Native, Dart
-**Bases de Datos**: PostgreSQL, MongoDB, Firebase, MySQL
-**Cloud**: AWS, Google Cloud, Firebase, Docker
-**Herramientas**: Git, Jenkins, VS Code, Android Studio
+- **Backend**: Python • Node.js • Java • Microservices Architecture
+- **Frontend**: React • TypeScript • Vue.js • Modern CSS Frameworks
+- **Mobile**: Flutter • React Native • Cross-platform Development
+- **Cloud**: Google Cloud • AWS • Firebase • Docker & Kubernetes
+- **Databases**: PostgreSQL • MongoDB • Firebase • Redis
 
-### Contacto
+### 🚀 Featured Projects
 
-- 🌐 [tjson.net](https://tjson.net)
-- 📧 [gomezjason010@gmail.com](mailto:gomezjason010@gmail.com)
-- 💼 [LinkedIn](https://www.linkedin.com/in/jasson-gomez-211777209/)
-- 💻 [GitHub](https://github.com/jason7337)
-- 📱 +503 7502 5302
+- **🚗 [SpeedyGoApp](https://speedygoapp.com)**: Real-time transportation platform serving Colombia
+- **💼 TJson Portfolio**: This modern portfolio with enterprise-grade architecture
+- **📱 20+ Client Projects**: International web & mobile applications
 
-## Proyectos Destacados
+### 📫 Let's Connect
 
-- **SpeedyGoApp**: Aplicación de transporte para Colombia con Flutter y Firebase
-- **TJson Portfolio**: Este portafolio web con React y TypeScript
-- **20+ proyectos freelance** con clientes internacionales
+- 🌐 **Website**: [tjson.net](https://tjson.net)
+- 📧 **Personal**: [gomezjason010@gmail.com](mailto:gomezjason010@gmail.com)
+- 🏢 **Professional**: [jassongomez@speedygoapp.com](mailto:jassongomez@speedygoapp.com)
+- 💼 **LinkedIn**: [jasson-gomez](https://www.linkedin.com/in/jasson-gomez-211777209/)
+- 💻 **GitHub**: [@jason7337](https://github.com/jason7337)
+- 📱 **Phone**: +503 7502 5302
 
-## Licencia
+> 💡 Open to new opportunities: Full-time positions, contract work, and consulting projects
 
-MIT License - Siéntete libre de usar este código como referencia para tu propio portafolio.
+## 📄 Architecture & Performance
+
+- **Build Tool**: Vite with optimized production builds
+- **State Management**: React Context + Custom Hooks
+- **Animations**: Framer Motion for smooth interactions
+- **Code Quality**: ESLint + Prettier + TypeScript strict mode
+- **Security**: CSP headers, XSS protection, HTTPS enforcement
+- **Accessibility**: WCAG 2.1 AA compliant with ARIA attributes
+
+## 🤝 Contributing
+
+This portfolio represents professional work and personal branding. While the code is available for reference, please respect intellectual property and create your own unique portfolio.
+
+## 📜 License
+
+MIT License - Feel free to use this code as reference for your own portfolio projects.
+
+---
+
+*Built with ❤️ by Jasson Gómez • Last updated: 2025*

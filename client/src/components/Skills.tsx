@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
 
 export const Skills: React.FC = () => {
   const { t } = useTranslation();
@@ -13,8 +13,8 @@ export const Skills: React.FC = () => {
         { name: 'Python', level: 90, tools: ['Flask', 'FastAPI', 'Django'] },
         { name: 'Node.js', level: 95, tools: ['Express', 'Nest.js'] },
         { name: 'Java', level: 85, tools: ['Spring Boot', 'JEE'] },
-        { name: 'APIs', level: 92, tools: ['RESTful', 'GraphQL', 'Microservices'] }
-      ]
+        { name: 'APIs', level: 92, tools: ['RESTful', 'GraphQL', 'Microservices'] },
+      ],
     },
     frontend: {
       title: 'skills.frontend',
@@ -23,8 +23,8 @@ export const Skills: React.FC = () => {
         { name: 'TypeScript', level: 90, tools: ['ES6+', 'Modern JS'] },
         { name: 'Tailwind CSS', level: 92, tools: ['Responsive Design', 'CSS3'] },
         { name: 'Vite', level: 88, tools: ['Build Tool', 'HMR'] },
-        { name: 'Framer Motion', level: 85, tools: ['Animations', 'Gestures'] }
-      ]
+        { name: 'Framer Motion', level: 85, tools: ['Animations', 'Gestures'] },
+      ],
     },
     mobile: {
       title: 'skills.mobile',
@@ -32,8 +32,8 @@ export const Skills: React.FC = () => {
         { name: 'Flutter', level: 92, tools: ['Dart', 'Material Design'] },
         { name: 'Firebase', level: 88, tools: ['Firestore', 'Auth', 'Storage'] },
         { name: 'Google Maps API', level: 85 },
-        { name: 'React Native', level: 80 }
-      ]
+        { name: 'React Native', level: 80 },
+      ],
     },
     database: {
       title: 'skills.database',
@@ -41,8 +41,8 @@ export const Skills: React.FC = () => {
         { name: 'Firebase', level: 90, tools: ['Firestore', 'Realtime DB'] },
         { name: 'PostgreSQL', level: 85 },
         { name: 'MongoDB', level: 88 },
-        { name: 'MySQL', level: 82 }
-      ]
+        { name: 'MySQL', level: 82 },
+      ],
     },
     cloud: {
       title: 'skills.cloud',
@@ -50,8 +50,8 @@ export const Skills: React.FC = () => {
         { name: 'Firebase', level: 90, tools: ['Hosting', 'Functions', 'Analytics'] },
         { name: 'AWS', level: 82, tools: ['EC2', 'S3', 'Lambda'] },
         { name: 'Docker', level: 85 },
-        { name: 'CI/CD', level: 86, tools: ['GitHub Actions', 'GitLab CI'] }
-      ]
+        { name: 'CI/CD', level: 86, tools: ['GitHub Actions', 'GitLab CI'] },
+      ],
     },
     tools: {
       title: 'skills.tools',
@@ -59,9 +59,9 @@ export const Skills: React.FC = () => {
         { name: 'Git', level: 95, tools: ['GitHub', 'GitLab'] },
         { name: 'VS Code', level: 92 },
         { name: 'Android Studio', level: 88 },
-        { name: 'Agile/Scrum', level: 90 }
-      ]
-    }
+        { name: 'Agile/Scrum', level: 90 },
+      ],
+    },
   };
 
   return (
@@ -77,9 +77,7 @@ export const Skills: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             {t('skills.title')}
           </h2>
-          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400">
-            {t('skills.subtitle')}
-          </p>
+          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400">{t('skills.subtitle')}</p>
         </motion.div>
 
         {/* Category Tabs */}
@@ -125,12 +123,8 @@ export const Skills: React.FC = () => {
               className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-4 sm:p-6 hover:shadow-xl transition-all"
             >
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white">
-                  {skill.name}
-                </h3>
-                <span className="text-sm font-semibold text-primary-600 dark:text-primary-400">
-                  {skill.level}%
-                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-white">{skill.name}</h3>
+                <span className="text-sm font-semibold text-primary-600 dark:text-primary-400">{skill.level}%</span>
               </div>
 
               {/* Progress Bar */}

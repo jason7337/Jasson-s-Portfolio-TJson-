@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 8080;  // Cloud Run default port
+const PORT = process.env.PORT || 8080; // Cloud Run default port
 
 // Ensure SESSION_SECRET is available for deployment
 const SESSION_SECRET = process.env.SESSION_SECRET;
@@ -36,6 +36,36 @@ app.disable('x-powered-by');
 // Trust proxy for deployment environment
 app.set('trust proxy', 1);
 
+// Security headers middleware for Cloud Run
+app.use((req, res, next) => {
+  // Security headers
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+
+  // Content Security Policy for enhanced security
+  res.setHeader('Content-Security-Policy', [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com",
+    "font-src 'self' https://fonts.gstatic.com",
+    "img-src 'self' data: https:",
+    "connect-src 'self' https:",
+    "frame-ancestors 'none'",
+    "base-uri 'self'",
+    "form-action 'self'"
+  ].join('; '));
+
+  // HSTS for HTTPS enforcement (Cloud Run handles HTTPS termination)
+  if (req.secure || req.headers['x-forwarded-proto'] === 'https') {
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  }
+
+  next();
+});
+
 // Parse JSON and URL encoded data
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
@@ -44,75 +74,84 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.get('/health', (req, res) => {
   res.set({
     'Cache-Control': 'no-cache, no-store, must-revalidate',
-    'Pragma': 'no-cache', 
-    'Expires': '0',
-    'Connection': 'close'
+    Pragma: 'no-cache',
+    Expires: '0',
+    Connection: 'close',
   });
-  res.status(200).json({ 
-    status: 'OK', 
+  res.status(200).json({
+    status: 'OK',
     timestamp: Date.now(),
-    uptime: process.uptime()
+    uptime: process.uptime(),
   });
 });
 
 // Serve static files from dist directory
-app.use('/assets', express.static(path.join(__dirname, 'dist/assets'), {
-  maxAge: '1y',
-  immutable: true
-}));
+app.use(
+  '/assets',
+  express.static(path.join(__dirname, 'dist/assets'), {
+    maxAge: '1y',
+    immutable: true,
+  }),
+);
 
-app.use('/images', express.static(path.join(__dirname, 'dist/images'), {
-  maxAge: '1d'
-}));
+app.use(
+  '/images',
+  express.static(path.join(__dirname, 'dist/images'), {
+    maxAge: '1d',
+  }),
+);
 
 // Serve other static files
-app.use(express.static(path.join(__dirname, 'dist'), {
-  dotfiles: 'ignore',
-  index: false,
-  maxAge: '1h'
-}));
+app.use(
+  express.static(path.join(__dirname, 'dist'), {
+    dotfiles: 'ignore',
+    index: false,
+    maxAge: '1h',
+  }),
+);
 
 // Root endpoint - serve React app but also handle health checks
 app.get('/', (req, res) => {
   // If request includes health check headers, return JSON health status
   const userAgent = req.get('User-Agent') || '';
-  const isHealthCheck = userAgent.includes('curl') || 
-                       userAgent.includes('health') ||
-                       req.query.health !== undefined ||
-                       req.get('X-Health-Check');
+  const isHealthCheck =
+    userAgent.includes('curl') ||
+    userAgent.includes('health') ||
+    req.query.health !== undefined ||
+    req.get('X-Health-Check');
 
   if (isHealthCheck) {
     res.set({
       'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache', 
-      'Expires': '0',
-      'Connection': 'close'
+      Pragma: 'no-cache',
+      Expires: '0',
+      Connection: 'close',
     });
-    return res.status(200).json({ 
-      status: 'OK', 
+    return res.status(200).json({
+      status: 'OK',
       timestamp: Date.now(),
       uptime: process.uptime(),
-      message: 'TJson Portfolio is running'
+      message: 'TJson Portfolio is running',
     });
   }
 
   // Otherwise serve React app
   const indexPath = path.join(__dirname, 'dist', 'index.html');
-  
+
   if (!fs.existsSync(indexPath)) {
     console.error('❌ Build not found: dist/index.html missing');
-    return res.status(500).json({ 
+    return res.status(500).json({
       error: 'Application not built',
-      message: 'Please run npm run build'
+      message: 'Please run npm run build',
     });
   }
-  
+
   res.set({
     'Cache-Control': 'no-cache, no-store, must-revalidate',
-    'Pragma': 'no-cache',
-    'Expires': '0'
+    Pragma: 'no-cache',
+    Expires: '0',
   });
-  
+
   res.sendFile(indexPath, (err) => {
     if (err) {
       console.error('❌ Error serving React app:', err);
@@ -124,21 +163,21 @@ app.get('/', (req, res) => {
 // Handle all other SPA routes - serve React app
 app.get('*', (req, res) => {
   const indexPath = path.join(__dirname, 'dist', 'index.html');
-  
+
   if (!fs.existsSync(indexPath)) {
     console.error('❌ Build not found: dist/index.html missing');
-    return res.status(500).json({ 
+    return res.status(500).json({
       error: 'Application not built',
-      message: 'Please run npm run build'
+      message: 'Please run npm run build',
     });
   }
-  
+
   res.set({
     'Cache-Control': 'no-cache, no-store, must-revalidate',
-    'Pragma': 'no-cache',
-    'Expires': '0'
+    Pragma: 'no-cache',
+    Expires: '0',
   });
-  
+
   res.sendFile(indexPath, (err) => {
     if (err) {
       console.error('❌ Error serving React app:', err);
@@ -160,7 +199,7 @@ const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`🔗 Root endpoint: http://0.0.0.0:${PORT}/`);
   console.log(`❤️  Health check: http://0.0.0.0:${PORT}/health`);
   console.log(`📁 Serving from: ${path.join(__dirname, 'dist')}`);
-  
+
   // Verify build exists
   const indexPath = path.join(__dirname, 'dist', 'index.html');
   if (fs.existsSync(indexPath)) {
@@ -169,7 +208,7 @@ const server = app.listen(PORT, '0.0.0.0', () => {
   } else {
     console.error('❌ Build missing: run npm run build');
   }
-  
+
   console.log('🎯 Server ready for deployment health checks');
 });
 
@@ -190,7 +229,7 @@ process.on('SIGTERM', () => {
 process.on('SIGINT', () => {
   console.log('👋 SIGINT received, shutting down gracefully...');
   server.close(() => {
-    console.log('✅ Server closed');  
+    console.log('✅ Server closed');
     process.exit(0);
   });
 });

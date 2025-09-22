@@ -1,17 +1,33 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Contact: React.FC = () => {
   const { t } = useTranslation();
 
   const contactInfo = [
-    { icon: Mail, label: t('contact.info.email'), value: 'gomezjason010@gmail.com', href: 'mailto:gomezjason010@gmail.com' },
+    {
+      icon: Mail,
+      label: t('contact.info.email'),
+      value: 'gomezjason010@gmail.com',
+      href: 'mailto:gomezjason010@gmail.com',
+    },
+    {
+      icon: Mail,
+      label: t('contact.info.businessEmail'),
+      value: 'jassongomez@speedygoapp.com',
+      href: 'mailto:jassongomez@speedygoapp.com',
+    },
     { icon: Phone, label: t('contact.info.phone'), value: '+503 7502 5302', href: 'tel:+50375025302' },
     { icon: MapPin, label: t('contact.info.location'), value: 'El Salvador', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', value: 'Jasson Gómez', href: 'https://www.linkedin.com/in/jasson-gomez-211777209/' },
-    { icon: Github, label: 'GitHub', value: '@jason7337', href: 'https://github.com/jason7337' }
+    {
+      icon: Linkedin,
+      label: 'LinkedIn',
+      value: 'Jasson Gómez',
+      href: 'https://www.linkedin.com/in/jasson-gomez-211777209/',
+    },
+    { icon: Github, label: 'GitHub', value: '@jason7337', href: 'https://github.com/jason7337' },
   ];
 
   return (
@@ -27,9 +43,7 @@ export const Contact: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             {t('contact.title')}
           </h2>
-          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400">
-            {t('contact.subtitle')}
-          </p>
+          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400">{t('contact.subtitle')}</p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -57,9 +71,7 @@ export const Contact: React.FC = () => {
                   <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600 dark:text-primary-400" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-1">
-                    {info.label}
-                  </p>
+                  <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-1">{info.label}</p>
                   <p className="text-sm sm:text-lg font-semibold text-neutral-900 dark:text-white break-all sm:break-normal">
                     {info.value}
                   </p>

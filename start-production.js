@@ -13,7 +13,8 @@ process.env.NODE_ENV = 'production';
 
 // Set SESSION_SECRET for deployment if not already set
 if (!process.env.SESSION_SECRET) {
-  process.env.SESSION_SECRET = 'replit-portfolio-secure-session-' + Date.now() + '-' + Math.random().toString(36).substring(2);
+  process.env.SESSION_SECRET =
+    'replit-portfolio-secure-session-' + Date.now() + '-' + Math.random().toString(36).substring(2);
   console.log('✅ SESSION_SECRET set for deployment');
 }
 
@@ -48,7 +49,7 @@ try {
   const assetsPath = path.join(distPath, 'assets');
 
   let needsBuild = false;
-  
+
   if (!fs.existsSync(distPath)) {
     console.log('📁 Dist folder not found');
     needsBuild = true;
@@ -64,36 +65,36 @@ try {
 
   if (needsBuild) {
     console.log('🔨 Building the project...');
-    
+
     // Clean existing build
     if (fs.existsSync(distPath)) {
       console.log('🧹 Cleaning existing build...');
       execSync('rm -rf dist', { stdio: 'inherit', cwd: __dirname });
     }
-    
+
     // Build the project
     console.log('⚙️  Running build command...');
-    execSync('npm run build', { 
-      stdio: 'inherit', 
+    execSync('npm run build', {
+      stdio: 'inherit',
       cwd: __dirname,
-      env: { ...process.env, NODE_ENV: 'production' }
+      env: { ...process.env, NODE_ENV: 'production' },
     });
-    
+
     // Verify build was successful
     if (!fs.existsSync(indexPath)) {
       throw new Error('Build failed: index.html not found after build');
     }
-    
+
     if (!fs.existsSync(assetsPath)) {
       throw new Error('Build failed: assets folder not found after build');
     }
-    
+
     // Check build size
     const stats = fs.statSync(indexPath);
     if (stats.size < 1000) {
       throw new Error('Build failed: index.html is too small, likely empty');
     }
-    
+
     console.log('✅ Build completed successfully');
     console.log(`📊 index.html size: ${Math.round(stats.size / 1024)}KB`);
   }
@@ -108,7 +109,7 @@ try {
   console.log('🌐 Starting Express server...');
   console.log(`🔧 Environment: ${process.env.NODE_ENV}`);
   console.log(`📍 Working directory: ${__dirname}`);
-  
+
   // Import and start the server
   try {
     execSync('node server.js', {
@@ -117,8 +118,8 @@ try {
       env: {
         ...process.env,
         NODE_ENV: 'production',
-        PORT: process.env.PORT || '8080'  // Changed default port for Cloud Run
-      }
+        PORT: process.env.PORT || '8080', // Changed default port for Cloud Run
+      },
     });
   } catch (serverError) {
     if (serverError.message.includes('EADDRINUSE')) {
@@ -130,7 +131,6 @@ try {
       throw serverError;
     }
   }
-
 } catch (error) {
   console.error('❌ Production startup failed:', error.message);
   console.error('Full error:', error);

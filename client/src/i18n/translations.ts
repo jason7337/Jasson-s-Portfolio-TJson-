@@ -10,37 +10,37 @@ export const translations = {
       skills: 'Skills',
       experience: 'Experience',
       projects: 'Projects',
-      contact: 'Contact'
+      contact: 'Contact',
     },
     hero: {
-      greeting: 'Hi, I\'m',
+      greeting: "Hi, I'm",
       name: 'Jasson Gómez',
       title: 'Senior Full Stack Developer',
-      subtitle: 'Python & JavaScript Specialist',
-      description: 'Building scalable microservices, cloud solutions, and exceptional web experiences',
+      subtitle: 'Enterprise Software Architect • 7+ Years Experience',
+      description: 'Delivering enterprise-grade solutions with Python, JavaScript, and cloud technologies. Available for full-time positions, contract work, and consulting opportunities.',
       cta: 'Get in Touch',
       viewWork: 'View My Work',
       location: 'El Salvador',
-      remote: '100% Remote Available'
+      remote: '100% Remote Available',
     },
     about: {
       title: 'About Me',
-      subtitle: 'Passionate about creating innovative digital solutions',
-      bio1: 'Computer Systems Engineering student from the National University of El Salvador with over 7 years of experience in software development.',
-      bio2: 'Specialized in building scalable applications with modern technologies, from microservices architectures to intuitive user interfaces.',
-      bio3: 'Lead Developer at SpeedyGoApp, demonstrating technical leadership in an innovative transport solution.',
+      subtitle: 'Building enterprise solutions that drive business growth',
+      bio1: 'Professional Full Stack Developer with over 7 years of hands-on experience delivering production-ready applications for international clients. Currently pursuing formal Computer Systems Engineering credentials to complement my extensive practical expertise.',
+      bio2: 'My expertise spans from architecting microservices and cloud-native solutions to crafting intuitive user experiences. I have successfully delivered 20+ projects ranging from enterprise applications to innovative startups, always focusing on scalability, performance, and maintainability.',
+      bio3: 'As Lead Developer at SpeedyGoApp, I architected and deployed a real-time transportation platform serving thousands of users in Colombia, demonstrating my ability to lead technical initiatives from concept to successful market launch.',
       highlights: {
         title: 'Quick Facts',
         experience: '7+ Years Experience',
         projects: '20+ Projects Completed',
         technologies: '20+ Technologies',
-        remote: '100% Remote Work'
+        remote: '100% Remote Work',
       },
       speedygo: {
         role: 'Lead Developer',
         visitWebsite: 'Visit Website',
-        googlePlay: 'Google Play'
-      }
+        googlePlay: 'Google Play',
+      },
     },
     skills: {
       title: 'Technical Skills',
@@ -51,7 +51,7 @@ export const translations = {
       database: 'Databases',
       cloud: 'Cloud & DevOps',
       tools: 'Tools & Methodologies',
-      emerging: 'Emerging Technologies'
+      emerging: 'Emerging Technologies',
     },
     experience: {
       title: 'Experience',
@@ -60,15 +60,16 @@ export const translations = {
         title: 'Lead Developer',
         company: 'SpeedyGoApp',
         period: 'Present',
-        description: 'Lead developer for innovative transport app in Colombia. Collaboration between Salvadoran and Colombian partners.',
+        description:
+          'Lead developer for innovative transport app in Colombia. Collaboration between Salvadoran and Colombian partners.',
         achievements: [
           'Developed complete mobile application with Flutter and Dart',
           'Implemented Firebase backend architecture',
           'Integrated real-time tracking with Google Maps API',
-          'Launched successfully in Nariño, Colombia'
+          'Launched successfully in Nariño, Colombia',
         ],
         website: 'Website',
-        playStore: 'Play Store'
+        playStore: 'Play Store',
       },
       freelance: {
         title: 'Senior Full Stack Developer',
@@ -79,9 +80,9 @@ export const translations = {
           'Delivered 20+ successful projects',
           'Specialized in React.js and Node.js ecosystems',
           'Implemented microservices architectures',
-          'Integrated AI solutions for process optimization'
-        ]
-      }
+          'Integrated AI solutions for process optimization',
+        ],
+      },
     },
     projects: {
       title: 'Featured Projects',
@@ -93,15 +94,16 @@ export const translations = {
       comingSoon: 'Coming Soon',
       viewMore: 'View More on GitHub',
       portfolio: {
-        description: 'Modern portfolio website built with React, TypeScript and TailwindCSS'
+        description: 'Modern portfolio website built with React, TypeScript and TailwindCSS',
       },
       speedygo: {
-        description: 'Innovative transport app for Colombia, started in Nariño. Collaboration between Salvadoran and Colombian partners'
-      }
+        description:
+          'Innovative transport app for Colombia, started in Nariño. Collaboration between Salvadoran and Colombian partners',
+      },
     },
     contact: {
       title: 'Get In Touch',
-      subtitle: 'Let\'s work together on your next project',
+      subtitle: "Let's work together on your next project",
       form: {
         name: 'Your Name',
         email: 'Your Email',
@@ -109,20 +111,21 @@ export const translations = {
         send: 'Send Message',
         sending: 'Sending...',
         success: 'Message sent successfully!',
-        error: 'Error sending message. Please try again.'
+        error: 'Error sending message. Please try again.',
       },
       info: {
-        email: 'Email',
+        email: 'Personal Email',
+        businessEmail: 'Business Email',
         phone: 'Phone',
         location: 'Location',
-        availability: 'Available for freelance work'
-      }
+        availability: 'Open to new opportunities',
+      },
     },
     footer: {
       rights: 'All rights reserved',
       madeWith: 'Made with',
-      by: 'by'
-    }
+      by: 'by',
+    },
   },
   es: {
     nav: {
@@ -131,37 +134,37 @@ export const translations = {
       skills: 'Habilidades',
       experience: 'Experiencia',
       projects: 'Proyectos',
-      contact: 'Contacto'
+      contact: 'Contacto',
     },
     hero: {
       greeting: 'Hola, soy',
       name: 'Jasson Gómez',
       title: 'Desarrollador Full Stack Senior',
-      subtitle: 'Especialista en Python y JavaScript',
-      description: 'Construyendo microservicios escalables, soluciones cloud y experiencias web excepcionales',
+      subtitle: 'Arquitecto de Software Empresarial • 7+ Años de Experiencia',
+      description: 'Entregando soluciones de nivel empresarial con Python, JavaScript y tecnologías cloud. Disponible para posiciones full-time, trabajo por contrato y oportunidades de consultoría.',
       cta: 'Contáctame',
       viewWork: 'Ver Mi Trabajo',
       location: 'El Salvador',
-      remote: '100% Remoto Disponible'
+      remote: '100% Remoto Disponible',
     },
     about: {
       title: 'Sobre Mí',
-      subtitle: 'Apasionado por crear soluciones digitales innovadoras',
-      bio1: 'Estudiante de Ingeniería de Sistemas Informáticos de la Universidad Nacional de El Salvador con más de 7 años de experiencia en desarrollo de software.',
-      bio2: 'Especializado en construir aplicaciones escalables con tecnologías modernas, desde arquitecturas de microservicios hasta interfaces de usuario intuitivas.',
-      bio3: 'Desarrollador Principal en SpeedyGoApp, demostrando liderazgo técnico en una solución innovadora de transporte.',
+      subtitle: 'Construyendo soluciones empresariales que impulsan el crecimiento del negocio',
+      bio1: 'Desarrollador Full Stack Profesional con más de 7 años de experiencia práctica entregando aplicaciones listas para producción a clientes internacionales. Actualmente complementando mi amplia experiencia práctica con credenciales formales en Ingeniería de Sistemas Informáticos.',
+      bio2: 'Mi expertise abarca desde la arquitectura de microservicios y soluciones cloud-native hasta la creación de experiencias de usuario intuitivas. He entregado exitosamente más de 20 proyectos que van desde aplicaciones empresariales hasta startups innovadoras, siempre enfocándome en escalabilidad, rendimiento y mantenibilidad.',
+      bio3: 'Como Desarrollador Principal en SpeedyGoApp, arquitecté y desplegué una plataforma de transporte en tiempo real que sirve a miles de usuarios en Colombia, demostrando mi capacidad para liderar iniciativas técnicas desde el concepto hasta el lanzamiento exitoso al mercado.',
       highlights: {
         title: 'Datos Rápidos',
         experience: '7+ Años de Experiencia',
         projects: '20+ Proyectos Completados',
         technologies: '20+ Tecnologías',
-        remote: '100% Trabajo Remoto'
+        remote: '100% Trabajo Remoto',
       },
       speedygo: {
         role: 'Desarrollador Principal',
         visitWebsite: 'Visitar Sitio Web',
-        googlePlay: 'Google Play'
-      }
+        googlePlay: 'Google Play',
+      },
     },
     skills: {
       title: 'Habilidades Técnicas',
@@ -172,7 +175,7 @@ export const translations = {
       database: 'Bases de Datos',
       cloud: 'Cloud y DevOps',
       tools: 'Herramientas y Metodologías',
-      emerging: 'Tecnologías Emergentes'
+      emerging: 'Tecnologías Emergentes',
     },
     experience: {
       title: 'Experiencia',
@@ -181,15 +184,16 @@ export const translations = {
         title: 'Desarrollador Principal',
         company: 'SpeedyGoApp',
         period: 'Presente',
-        description: 'Desarrollador principal de app de transporte innovadora en Colombia. Colaboración entre socios salvadoreños y colombianos.',
+        description:
+          'Desarrollador principal de app de transporte innovadora en Colombia. Colaboración entre socios salvadoreños y colombianos.',
         achievements: [
           'Desarrollé aplicación móvil completa con Flutter y Dart',
           'Implementé arquitectura backend con Firebase',
           'Integré rastreo en tiempo real con Google Maps API',
-          'Lanzamiento exitoso en Nariño, Colombia'
+          'Lanzamiento exitoso en Nariño, Colombia',
         ],
         website: 'Sitio Web',
-        playStore: 'Play Store'
+        playStore: 'Play Store',
       },
       freelance: {
         title: 'Desarrollador Full Stack Senior',
@@ -200,9 +204,9 @@ export const translations = {
           'Entregué 20+ proyectos exitosos',
           'Especializado en ecosistemas React.js y Node.js',
           'Implementé arquitecturas de microservicios',
-          'Integré soluciones de IA para optimización de procesos'
-        ]
-      }
+          'Integré soluciones de IA para optimización de procesos',
+        ],
+      },
     },
     projects: {
       title: 'Proyectos Destacados',
@@ -214,11 +218,12 @@ export const translations = {
       comingSoon: 'Próximamente',
       viewMore: 'Ver Más en GitHub',
       portfolio: {
-        description: 'Portafolio web moderno construido con React, TypeScript y TailwindCSS'
+        description: 'Portafolio web moderno construido con React, TypeScript y TailwindCSS',
       },
       speedygo: {
-        description: 'App de transporte innovadora para Colombia, iniciada en Nariño. Colaboración entre socios salvadoreños y colombianos'
-      }
+        description:
+          'App de transporte innovadora para Colombia, iniciada en Nariño. Colaboración entre socios salvadoreños y colombianos',
+      },
     },
     contact: {
       title: 'Contacto',
@@ -230,19 +235,20 @@ export const translations = {
         send: 'Enviar Mensaje',
         sending: 'Enviando...',
         success: '¡Mensaje enviado exitosamente!',
-        error: 'Error al enviar el mensaje. Por favor intenta de nuevo.'
+        error: 'Error al enviar el mensaje. Por favor intenta de nuevo.',
       },
       info: {
-        email: 'Correo',
+        email: 'Correo Personal',
+        businessEmail: 'Correo Empresarial',
         phone: 'Teléfono',
         location: 'Ubicación',
-        availability: 'Disponible para trabajo freelance'
-      }
+        availability: 'Abierto a nuevas oportunidades',
+      },
     },
     footer: {
       rights: 'Todos los derechos reservados',
       madeWith: 'Hecho con',
-      by: 'por'
-    }
-  }
+      by: 'por',
+    },
+  },
 };
