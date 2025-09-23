@@ -1,6 +1,7 @@
 import { motion, AnimatePresence, useMotionValueEvent, useScroll } from 'framer-motion';
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -15,6 +16,8 @@ export const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
   const { scrollY } = useScroll();
   const navRef = useRef<HTMLElement>(null);
+  const langButtonRef = useRef<HTMLButtonElement>(null);
+  const [buttonPosition, setButtonPosition] = useState({ top: 0, right: 0 });
 
   // Track scroll position with framer motion for smoother performance
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -97,6 +100,19 @@ export const Navbar: React.FC = () => {
     setIsLangMenuOpen(false);
   };
 
+  /**
+   * Update button position when menu opens
+   */
+  useEffect(() => {
+    if (isLangMenuOpen && langButtonRef.current) {
+      const rect = langButtonRef.current.getBoundingClientRect();
+      setButtonPosition({
+        top: rect.bottom + 8,
+        right: window.innerWidth - rect.right
+      });
+    }
+  }, [isLangMenuOpen]);
+
   return (
     <>
     <motion.nav
@@ -104,14 +120,14 @@ export const Navbar: React.FC = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 w-screen overflow-x-hidden ${
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 w-full max-w-full ${
         isScrolled
           ? 'bg-white/70 dark:bg-neutral-950/70 backdrop-blur-xl shadow-xl border-b border-neutral-200/20 dark:border-neutral-800/20'
           : 'bg-gradient-to-b from-white/10 to-transparent dark:from-neutral-950/50 dark:to-transparent backdrop-blur-sm'
       }`}
       style={{ zIndex: 1000 }}
     >
-      <div className="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
+      <div className="w-full max-w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 min-w-0">
           {/* Premium logo with hover effects */}
           <motion.div
@@ -169,6 +185,7 @@ export const Navbar: React.FC = () => {
             {/* Enhanced Language Switcher */}
             <div className="relative">
               <motion.button
+                ref={langButtonRef}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
@@ -182,33 +199,13 @@ export const Navbar: React.FC = () => {
                   isLangMenuOpen ? 'rotate-180' : ''
                 }`} />
               </motion.button>
-
-              <AnimatePresence>
-                {isLangMenuOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute right-0 mt-2 py-2 w-32 sm:w-36 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl rounded-xl shadow-2xl border border-neutral-200/50 dark:border-neutral-700/50 overflow-hidden"
-                  >
-                    <button
-                      onClick={toggleLanguage}
-                      className="group flex items-center w-full px-4 py-2.5 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-gradient-to-r hover:from-primary-50 hover:to-accent-50 dark:hover:from-primary-900/20 dark:hover:to-accent-900/20 transition-all duration-200"
-                    >
-                      <span className="mr-2 text-lg">{i18n.language === 'en' ? '🇪🇸' : '🇺🇸'}</span>
-                      <span className="font-medium">{i18n.language === 'en' ? 'Español' : 'English'}</span>
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
 
             {/* Premium Mobile Menu Toggle */}
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden relative p-2.5 rounded-xl bg-gradient-to-r from-neutral-100 to-neutral-50 dark:from-neutral-800 dark:to-neutral-900 shadow-sm hover:shadow-md transition-all duration-300 group"
+              className="lg:hidden relative p-2.5 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-all duration-300 group"
               aria-label="Toggle menu"
             >
               <div className="relative w-5 h-5">
@@ -252,10 +249,9 @@ export const Navbar: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
-        className="lg:hidden fixed top-16 sm:top-20 left-0 right-0 bg-white/98 dark:bg-neutral-950/98 backdrop-blur-xl border-b border-neutral-200/50 dark:border-neutral-800/50 shadow-xl"
-        style={{ zIndex: 9999 }}
+        className="lg:hidden fixed top-16 sm:top-20 left-0 right-0 bg-white dark:bg-neutral-950 backdrop-blur-xl border-b border-neutral-200 dark:border-neutral-800 shadow-xl z-40"
       >
-        <div className="px-4 py-4 space-y-2 max-w-7xl mx-auto">
+        <div className="px-4 py-4 space-y-2 w-full max-w-none">
           {navItems.map((item, index) => (
             <motion.button
               key={item}
@@ -297,7 +293,7 @@ export const Navbar: React.FC = () => {
                 toggleLanguage();
                 setIsMobileMenuOpen(false);
               }}
-              className="flex items-center justify-center w-full px-4 py-3 rounded-xl bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/20 dark:to-accent-900/20 hover:from-primary-200 hover:to-accent-200 dark:hover:from-primary-900/30 dark:hover:to-accent-900/30 transition-all duration-200"
+              className="flex items-center justify-center w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 to-blue-50 dark:from-sky-900/20 dark:to-blue-900/20 hover:from-sky-100 hover:to-blue-100 dark:hover:from-sky-900/30 dark:hover:to-blue-900/30 transition-all duration-200 border border-sky-200 dark:border-sky-800"
             >
               <Globe className="w-5 h-5 mr-2 text-primary-600 dark:text-primary-400" />
               <span className="font-medium text-primary-700 dark:text-primary-300">
@@ -309,6 +305,33 @@ export const Navbar: React.FC = () => {
         </motion.div>
       )}
     </AnimatePresence>
+
+    {/* Language Dropdown Portal */}
+    {isLangMenuOpen && createPortal(
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, y: -10, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -10, scale: 0.95 }}
+          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed py-2 w-32 sm:w-36 bg-white dark:bg-neutral-900 backdrop-blur-xl rounded-xl shadow-2xl border border-neutral-200 dark:border-neutral-700 overflow-hidden"
+          style={{
+            top: buttonPosition.top,
+            right: buttonPosition.right,
+            zIndex: 9999
+          }}
+        >
+          <button
+            onClick={toggleLanguage}
+            className="group flex items-center w-full px-4 py-2.5 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-gradient-to-r hover:from-primary-50 hover:to-accent-50 dark:hover:from-primary-900/20 dark:hover:to-accent-900/20 transition-all duration-200"
+          >
+            <span className="mr-2 text-lg">{i18n.language === 'en' ? '🇪🇸' : '🇺🇸'}</span>
+            <span className="font-medium">{i18n.language === 'en' ? 'Español' : 'English'}</span>
+          </button>
+        </motion.div>
+      </AnimatePresence>,
+      document.body
+    )}
   </>
   );
 };

@@ -147,6 +147,12 @@ export const useResumeGenerator = () => {
     });
     yPosition += 5;
 
+    addText('Portfolio: https://tjson.net', 20, yPosition, {
+      fontSize: 10,
+      color: lightTextColor
+    });
+    yPosition += 5;
+
     addText('GitHub: github.com/jason7337 | LinkedIn: linkedin.com/in/jasson-gomez-211777209', 20, yPosition, {
       fontSize: 10,
       color: lightTextColor

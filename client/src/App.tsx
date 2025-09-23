@@ -9,6 +9,7 @@ import { Projects } from './components/Projects';
 import { Skills } from './components/Skills';
 import SplashScreen from './components/SplashScreen';
 import './i18n';
+import './utils/debugOverflow';
 
 /**
  * Main application component
