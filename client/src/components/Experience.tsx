@@ -81,25 +81,40 @@ export const Experience: React.FC = () => {
                   ))}
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href="https://speedygoapp.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm sm:text-base"
-                  >
-                    <span>{t('experience.speedygo.website')}</span>
-                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </a>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm sm:text-base"
-                  >
-                    <span>{t('experience.speedygo.playStore')}</span>
-                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </a>
+                {/* Enhanced Project Links Section */}
+                <div className="mt-6 p-4 bg-gradient-to-r from-neutral-50 to-neutral-100 dark:from-neutral-900 dark:to-neutral-800 rounded-xl">
+                  <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400 mb-3">
+                    {t('experience.speedygo.explore')}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <motion.a
+                      href="https://speedygoapp.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-xl font-medium shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden text-sm sm:text-base"
+                    >
+                      <span className="relative z-10">{t('experience.speedygo.website')}</span>
+                      <ExternalLink className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary-700 to-primary-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </motion.a>
+                    <motion.a
+                      href="https://play.google.com/store/apps/details?id=com.speedygoapp.speedygoapp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl font-medium shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden text-sm sm:text-base"
+                    >
+                      <svg className="relative z-10 w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                      </svg>
+                      <span className="relative z-10">{t('experience.speedygo.playStore')}</span>
+                      <ExternalLink className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-green-700 to-green-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </motion.a>
+                  </div>
                 </div>
               </motion.div>
             </div>

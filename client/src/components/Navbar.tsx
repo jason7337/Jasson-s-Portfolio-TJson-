@@ -98,19 +98,21 @@ export const Navbar: React.FC = () => {
   };
 
   return (
+    <>
     <motion.nav
       ref={navRef}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 w-full ${
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 w-screen overflow-x-hidden ${
         isScrolled
           ? 'bg-white/70 dark:bg-neutral-950/70 backdrop-blur-xl shadow-xl border-b border-neutral-200/20 dark:border-neutral-800/20'
           : 'bg-gradient-to-b from-white/10 to-transparent dark:from-neutral-950/50 dark:to-transparent backdrop-blur-sm'
       }`}
+      style={{ zIndex: 1000 }}
     >
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      <div className="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
+        <div className="flex items-center justify-between h-16 sm:h-20 min-w-0">
           {/* Premium logo with hover effects */}
           <motion.div
             whileHover={{ scale: 1.02 }}
@@ -163,7 +165,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Actions: Language Switcher & Mobile Menu */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
             {/* Enhanced Language Switcher */}
             <div className="relative">
               <motion.button
@@ -238,91 +240,75 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Enhanced Mobile Menu with Slide Animation */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <>
-              {/* Backdrop */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="lg:hidden fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm z-40"
-                onClick={() => setIsMobileMenuOpen(false)}
-              />
-
-              {/* Mobile Menu Panel */}
-              <motion.div
-                initial={{ opacity: 0, x: '100%' }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: '100%' }}
-                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                className="lg:hidden fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl shadow-2xl z-50 border-l border-neutral-200/20 dark:border-neutral-800/20"
-              >
-                {/* Mobile Menu Header */}
-                <div className="flex items-center justify-between p-6 border-b border-neutral-200/20 dark:border-neutral-800/20">
-                  <span className="text-lg font-semibold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-                    Menu
-                  </span>
-                  <motion.button
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-                  >
-                    <X className="w-5 h-5 text-neutral-600 dark:text-neutral-400" />
-                  </motion.button>
-                </div>
-
-                {/* Mobile Menu Items */}
-                <div className="p-6 space-y-2">
-                  {navItems.map((item, index) => (
-                    <motion.button
-                      key={item}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => scrollToSection(item)}
-                      className={`group flex items-center w-full px-4 py-3 rounded-xl transition-all duration-300 ${
-                        activeSection === item
-                          ? 'bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/20 dark:to-accent-900/20'
-                          : 'hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                      }`}
-                    >
-                      <span className={`text-base font-medium capitalize transition-colors ${
-                        activeSection === item
-                          ? 'text-primary-600 dark:text-primary-400'
-                          : 'text-neutral-700 dark:text-neutral-200'
-                      }`}>
-                        {t(`nav.${item}`)}
-                      </span>
-                      {activeSection === item && (
-                        <motion.div
-                          layoutId="mobile-active-dot"
-                          className="ml-auto w-2 h-2 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full"
-                        />
-                      )}
-                    </motion.button>
-                  ))}
-                </div>
-
-                {/* Language Switch in Mobile Menu */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-neutral-200/20 dark:border-neutral-800/20">
-                  <button
-                    onClick={toggleLanguage}
-                    className="flex items-center justify-center w-full px-4 py-3 rounded-xl bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/20 dark:to-accent-900/20 hover:from-primary-200 hover:to-accent-200 dark:hover:from-primary-900/30 dark:hover:to-accent-900/30 transition-all duration-300"
-                  >
-                    <Globe className="w-5 h-5 mr-2 text-primary-600 dark:text-primary-400" />
-                    <span className="font-medium text-primary-700 dark:text-primary-300">
-                      {i18n.language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
-                    </span>
-                  </button>
-                </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
       </div>
+
     </motion.nav>
+
+    {/* Mobile Dropdown Menu */}
+    <AnimatePresence>
+      {isMobileMenuOpen && (
+        <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+        className="lg:hidden fixed top-16 sm:top-20 left-0 right-0 bg-white/98 dark:bg-neutral-950/98 backdrop-blur-xl border-b border-neutral-200/50 dark:border-neutral-800/50 shadow-xl"
+        style={{ zIndex: 9999 }}
+      >
+        <div className="px-4 py-4 space-y-2 max-w-7xl mx-auto">
+          {navItems.map((item, index) => (
+            <motion.button
+              key={item}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.05 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                scrollToSection(item);
+                setIsMobileMenuOpen(false);
+              }}
+              className={`group flex items-center justify-between w-full px-4 py-3 rounded-xl transition-all duration-200 ${
+                activeSection === item
+                  ? 'bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/20 dark:to-accent-900/20'
+                  : 'hover:bg-neutral-100 dark:hover:bg-neutral-800'
+              }`}
+            >
+              <span className={`text-base font-medium capitalize transition-colors ${
+                activeSection === item
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-neutral-700 dark:text-neutral-200'
+              }`}>
+                {t(`nav.${item}`)}
+              </span>
+              {activeSection === item && (
+                <motion.div
+                  layoutId="mobile-active-indicator"
+                  className="w-2 h-2 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full"
+                />
+              )}
+            </motion.button>
+          ))}
+
+          {/* Language Switch in Mobile Menu */}
+          <div className="pt-3 mt-3 border-t border-neutral-200/20 dark:border-neutral-800/20">
+            <motion.button
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                toggleLanguage();
+                setIsMobileMenuOpen(false);
+              }}
+              className="flex items-center justify-center w-full px-4 py-3 rounded-xl bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900/20 dark:to-accent-900/20 hover:from-primary-200 hover:to-accent-200 dark:hover:from-primary-900/30 dark:hover:to-accent-900/30 transition-all duration-200"
+            >
+              <Globe className="w-5 h-5 mr-2 text-primary-600 dark:text-primary-400" />
+              <span className="font-medium text-primary-700 dark:text-primary-300">
+                {i18n.language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
+              </span>
+            </motion.button>
+          </div>
+        </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </>
   );
 };

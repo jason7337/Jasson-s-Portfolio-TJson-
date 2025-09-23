@@ -70,6 +70,7 @@ export const translations = {
         ],
         website: 'Website',
         playStore: 'Play Store',
+        explore: 'Explore the Project',
       },
       freelance: {
         title: 'Senior Full Stack Developer',
@@ -194,6 +195,7 @@ export const translations = {
         ],
         website: 'Sitio Web',
         playStore: 'Play Store',
+        explore: 'Explorar el Proyecto',
       },
       freelance: {
         title: 'Desarrollador Full Stack Senior',
