@@ -216,10 +216,10 @@ export const Hero: React.FC = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full blur-xl opacity-30"></div>
 
               {/* Profile Image */}
-              <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-2xl max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:max-w-none">
+              <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-2xl max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-md mx-auto">
                 <img
                   src="/images/profile.jpg"
-                  alt="Professional portrait of Jasson Gómez, Senior Full Stack Developer"
+                  alt="Professional portrait of Jasson Gómez, Full Stack TypeScript Developer"
                   className="w-full h-full object-cover"
                   style={{ aspectRatio: '1/1' }}
                   loading="eager"

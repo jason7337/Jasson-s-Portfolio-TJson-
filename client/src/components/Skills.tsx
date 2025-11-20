@@ -4,62 +4,65 @@ import { useTranslation } from 'react-i18next';
 
 export const Skills: React.FC = () => {
   const { t } = useTranslation();
-  const [activeCategory, setActiveCategory] = useState('backend');
+  const [activeCategory, setActiveCategory] = useState('frontend');
 
   const skillCategories = {
-    backend: {
-      title: 'skills.backend',
-      skills: [
-        { name: 'Python', level: 90, tools: ['Flask', 'FastAPI', 'Django'] },
-        { name: 'Node.js', level: 95, tools: ['Express', 'Nest.js'] },
-        { name: 'Java', level: 85, tools: ['Spring Boot', 'JEE'] },
-        { name: 'APIs', level: 92, tools: ['RESTful', 'GraphQL', 'Microservices'] },
-      ],
-    },
     frontend: {
       title: 'skills.frontend',
       skills: [
-        { name: 'React.js', level: 95, tools: ['Hooks', 'Context', 'Redux'] },
-        { name: 'TypeScript', level: 90, tools: ['ES6+', 'Modern JS'] },
+        { name: 'TypeScript', level: 95, tools: ['ES6+', 'Type Safety'] },
+        { name: 'React', level: 95, tools: ['Hooks', 'Context', 'Redux'] },
+        { name: 'Angular', level: 88, tools: ['RxJS', 'Forms', 'Services'] },
         { name: 'Tailwind CSS', level: 92, tools: ['Responsive Design', 'CSS3'] },
         { name: 'Vite', level: 88, tools: ['Build Tool', 'HMR'] },
-        { name: 'Framer Motion', level: 85, tools: ['Animations', 'Gestures'] },
+      ],
+    },
+    backend: {
+      title: 'skills.backend',
+      skills: [
+        { name: 'Node.js', level: 95, tools: ['TypeScript', 'Async/Await'] },
+        { name: 'Express', level: 93, tools: ['REST APIs', 'Middleware'] },
+        { name: 'AdonisJS', level: 88, tools: ['ORM', 'Authentication'] },
+        { name: 'Python', level: 85, tools: ['Flask', 'FastAPI'] },
+        { name: 'C#', level: 80, tools: ['.NET', 'ASP.NET'] },
+        { name: 'Java', level: 78, tools: ['Spring', 'Maven'] },
       ],
     },
     mobile: {
       title: 'skills.mobile',
       skills: [
         { name: 'Flutter', level: 92, tools: ['Dart', 'Material Design'] },
-        { name: 'Firebase', level: 88, tools: ['Firestore', 'Auth', 'Storage'] },
-        { name: 'Google Maps API', level: 85 },
-        { name: 'React Native', level: 80 },
+        { name: 'React Native', level: 85, tools: ['Expo', 'Native Modules'] },
+        { name: 'Java/Kotlin', level: 82, tools: ['Android SDK', 'Native Apps'] },
+        { name: 'Google Maps API', level: 88 },
       ],
     },
     database: {
       title: 'skills.database',
       skills: [
-        { name: 'Firebase', level: 90, tools: ['Firestore', 'Realtime DB'] },
-        { name: 'PostgreSQL', level: 85 },
-        { name: 'MongoDB', level: 88 },
-        { name: 'MySQL', level: 82 },
+        { name: 'Firebase', level: 93, tools: ['Firestore', 'Realtime DB', 'Auth'] },
+        { name: 'PostgreSQL', level: 88, tools: ['SQL', 'Queries'] },
+        { name: 'MySQL', level: 87, tools: ['SQL', 'Optimization'] },
+        { name: 'MongoDB', level: 82 },
       ],
     },
     cloud: {
       title: 'skills.cloud',
       skills: [
-        { name: 'Firebase', level: 90, tools: ['Hosting', 'Functions', 'Analytics'] },
-        { name: 'AWS', level: 82, tools: ['EC2', 'S3', 'Lambda'] },
-        { name: 'Docker', level: 85 },
-        { name: 'CI/CD', level: 86, tools: ['GitHub Actions', 'GitLab CI'] },
+        { name: 'Firebase', level: 93, tools: ['Hosting', 'Functions', 'Analytics'] },
+        { name: 'Docker', level: 85, tools: ['Containers', 'Compose'] },
+        { name: 'Google Cloud', level: 82, tools: ['Cloud Run', 'Storage'] },
+        { name: 'CI/CD', level: 80, tools: ['GitHub Actions'] },
       ],
     },
     tools: {
       title: 'skills.tools',
       skills: [
-        { name: 'Git', level: 95, tools: ['GitHub', 'GitLab'] },
-        { name: 'VS Code', level: 92 },
-        { name: 'Android Studio', level: 88 },
-        { name: 'Agile/Scrum', level: 90 },
+        { name: 'Git', level: 95, tools: ['GitHub', 'Version Control'] },
+        { name: 'Jira', level: 90, tools: ['Project Management', 'Agile'] },
+        { name: 'Trello', level: 92, tools: ['Task Management', 'Kanban'] },
+        { name: 'Scrum', level: 88, tools: ['Agile Methodologies', 'Sprints'] },
+        { name: 'VS Code', level: 93, tools: ['Extensions', 'Debugging'] },
       ],
     },
   };
@@ -166,7 +169,7 @@ export const Skills: React.FC = () => {
           className="mt-12 text-center"
         >
           <p className="text-neutral-600 dark:text-neutral-400">
-            + i18next, Play Console, App Store Connect, y muchas más...
+            + i18next, Docker, Play Console, App Store Connect, RESTful APIs, and many more...
           </p>
         </motion.div>
       </div>

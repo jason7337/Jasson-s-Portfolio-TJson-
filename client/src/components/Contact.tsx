@@ -14,12 +14,11 @@ export const Contact: React.FC = () => {
       href: 'mailto:gomezjason010@gmail.com',
     },
     {
-      icon: Mail,
-      label: t('contact.info.businessEmail'),
-      value: 'jassongomez@speedygoapp.com',
-      href: 'mailto:jassongomez@speedygoapp.com',
+      icon: Phone,
+      label: t('contact.info.whatsapp'),
+      value: '+503 7502 5302',
+      href: 'https://wa.me/50375025302'
     },
-    { icon: Phone, label: t('contact.info.phone'), value: '+503 7502 5302', href: 'tel:+50375025302' },
     { icon: MapPin, label: t('contact.info.location'), value: 'El Salvador', href: '#' },
     {
       icon: Linkedin,

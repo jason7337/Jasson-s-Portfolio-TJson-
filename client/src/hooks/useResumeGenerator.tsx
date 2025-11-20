@@ -135,13 +135,13 @@ export const useResumeGenerator = () => {
     yPosition += 10;
 
     // Contact Information - Using correct data from Contact component
-    addText('gomezjason010@gmail.com | jassongomez@speedygoapp.com', 20, yPosition, {
+    addText('gomezjason010@gmail.com', 20, yPosition, {
       fontSize: 10,
       color: lightTextColor
     });
     yPosition += 5;
 
-    addText('+503 7502 5302 | El Salvador | ' + t('hero.remote'), 20, yPosition, {
+    addText('WhatsApp: +503 7502 5302 | El Salvador | ' + t('hero.remote'), 20, yPosition, {
       fontSize: 10,
       color: lightTextColor
     });
@@ -255,28 +255,28 @@ export const useResumeGenerator = () => {
 
     const skillCategories = [
       {
-        title: t('skills.backend'),
-        skills: 'Python, Node.js, Django, Express.js, FastAPI, Java, PHP'
+        title: t('skills.frontend'),
+        skills: 'TypeScript, React, Angular, JavaScript (ES6+), TailwindCSS, Vite, HTML5/CSS3'
       },
       {
-        title: t('skills.frontend'),
-        skills: 'React, TypeScript, JavaScript, TailwindCSS, Next.js, Vue.js, HTML5/CSS3'
+        title: t('skills.backend'),
+        skills: 'Node.js (TypeScript), Express, AdonisJS, Python (FastAPI), C#, Java, RESTful APIs'
       },
       {
         title: t('skills.mobile'),
-        skills: 'Flutter, Dart, React Native, Android (Kotlin/Java)'
+        skills: 'Flutter (Dart), React Native, Java/Kotlin (Android SDK), Google Maps API'
       },
       {
         title: t('skills.database'),
-        skills: 'PostgreSQL, MongoDB, MySQL, Redis, Firebase, SQLite'
+        skills: 'Firebase (Firestore, Auth), PostgreSQL, MySQL, MongoDB, SQL'
       },
       {
         title: t('skills.cloud'),
-        skills: 'Google Cloud Platform, AWS, Docker, Kubernetes, CI/CD, GitHub Actions'
+        skills: 'Firebase, Docker, Google Cloud Platform (Cloud Run), CI/CD, GitHub Actions'
       },
       {
         title: t('skills.tools'),
-        skills: 'Git, VS Code, Android Studio, Agile/Scrum, Jira, Postman'
+        skills: 'Git, GitHub, Jira, Trello, Scrum, VS Code, Agile Methodologies'
       }
     ];
 
@@ -350,6 +350,34 @@ export const useResumeGenerator = () => {
     yPosition += 5;
 
     addText('Website: logsense-ai.tjson.net', 20, yPosition, {
+      fontSize: 9,
+      color: lightTextColor
+    });
+    yPosition += 8;
+
+    // Calculadora de Interés Compuesto Project
+    checkPageBreak(30);
+    addText(i18n.language === 'en' ? 'Compound Interest Calculator' : 'Calculadora de Interés Compuesto', 20, yPosition, {
+      fontSize: 11,
+      fontStyle: 'bold'
+    });
+    yPosition += 5;
+
+    const calculatorDesc = t('projects.calculator.description');
+    const calculatorLines = pdf.splitTextToSize(calculatorDesc, 170);
+    calculatorLines.forEach((line: string) => {
+      addText(line, 20, yPosition, { fontSize: 9 });
+      yPosition += 4;
+    });
+    yPosition += 2;
+
+    addText(t('projects.technologies') + ': Java 21, Spring Boot 3.5.7, Thymeleaf, Docker, Cloud Run', 20, yPosition, {
+      fontSize: 9,
+      color: lightTextColor
+    });
+    yPosition += 5;
+
+    addText('Website: calculadora-interes-compuesto.tjson.net', 20, yPosition, {
       fontSize: 9,
       color: lightTextColor
     });

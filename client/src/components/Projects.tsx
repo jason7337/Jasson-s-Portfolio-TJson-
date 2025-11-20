@@ -34,6 +34,15 @@ export const Projects: React.FC = () => {
       live: 'https://logsense-ai.tjson.net',
       featured: true,
     },
+    {
+      title: 'Calculadora de Interés Compuesto',
+      descriptionKey: 'projects.calculator.description',
+      image: '/images/logo_tjson.png',
+      technologies: ['Java 21', 'Spring Boot 3.5.7', 'Thymeleaf', 'Docker', 'Cloud Run'],
+      github: 'https://github.com/jason7337/calculadora-inter-s-compuesto.git',
+      live: 'https://calculadora-interes-compuesto.tjson.net/',
+      featured: true,
+    },
   ];
 
   return (

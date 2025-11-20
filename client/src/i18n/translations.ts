@@ -15,9 +15,9 @@ export const translations = {
     hero: {
       greeting: "Hi, I'm",
       name: 'Jasson Gómez',
-      title: 'Senior Full Stack Developer',
-      subtitle: 'Enterprise Software Architect • 7+ Years Experience',
-      description: 'Delivering enterprise-grade solutions with Python, JavaScript, and cloud technologies. Available for full-time positions, contract work, and consulting opportunities.',
+      title: 'Full Stack TypeScript Developer',
+      subtitle: 'TypeScript • React • Node.js • Flutter',
+      description: 'Full Stack Developer specialized in TypeScript with 7+ years building web and mobile applications. I work with React, Angular, Node.js, Express, and AdonisJS. Also experienced with JavaScript, Python, C#, Java, C++, and Flutter/Dart for mobile development.',
       cta: 'Get in Touch',
       viewWork: 'View My Work',
       location: 'El Salvador',
@@ -25,10 +25,10 @@ export const translations = {
     },
     about: {
       title: 'About Me',
-      subtitle: 'Building enterprise solutions that drive business growth',
-      bio1: 'Professional Full Stack Developer with over 7 years of hands-on experience delivering production-ready applications for international clients. Currently pursuing formal Computer Systems Engineering credentials to complement my extensive practical expertise.',
-      bio2: 'My expertise spans from architecting microservices and cloud-native solutions to crafting intuitive user experiences. I have successfully delivered 20+ projects ranging from enterprise applications to innovative startups, always focusing on scalability, performance, and maintainability.',
-      bio3: 'As Lead Developer at SpeedyGoApp, I architected and deployed a real-time transportation platform serving thousands of users in Colombia, demonstrating my ability to lead technical initiatives from concept to successful market launch.',
+      subtitle: 'Building web and mobile solutions with modern technologies',
+      bio1: 'Full Stack Developer with 7+ years of experience, specialized in TypeScript. I build web applications with React and Angular, backend systems with Node.js, Express, and AdonisJS. Self-taught developer who stays current with evolving technologies.',
+      bio2: 'My main stack is TypeScript across the board, but I also work with JavaScript, Python, C#, Java, and C++. For mobile development, my focus is Flutter with Dart. I use Firebase extensively for backend services, along with SQL databases like MySQL and PostgreSQL. I work with Git, GitHub, and use tools like Jira and Trello following Scrum methodologies.',
+      bio3: 'At SpeedyGoApp, I built a complete real-time transportation platform for Colombia using Flutter, Firebase, and Google Maps API. The project handles thousands of users and demonstrates my ability to deliver production-ready applications from concept to deployment.',
       highlights: {
         title: 'Quick Facts',
         experience: '7+ Years Experience',
@@ -73,15 +73,15 @@ export const translations = {
         explore: 'Explore the Project',
       },
       freelance: {
-        title: 'Senior Full Stack Developer',
+        title: 'Full Stack TypeScript Developer',
         company: 'Freelance',
         period: '7+ years',
-        description: 'Working with international clients on diverse projects.',
+        description: 'Working with clients on web and mobile projects using modern TypeScript-based technologies.',
         achievements: [
-          'Delivered 20+ successful projects',
-          'Specialized in React.js and Node.js ecosystems',
-          'Implemented microservices architectures',
-          'Integrated AI solutions for process optimization',
+          'Delivered 20+ projects across web and mobile platforms',
+          'Built applications with React, Angular, Node.js, and Flutter',
+          'Implemented scalable architectures with Firebase and SQL databases',
+          'Managed projects using Git, Jira, Trello, and Scrum methodologies',
         ],
       },
     },
@@ -105,6 +105,10 @@ export const translations = {
         description:
           'Intelligent log anomaly detection system using ML algorithms. Built with Python, FastAPI, and scikit-learn for production-ready log analysis',
       },
+      calculator: {
+        description:
+          'Educational web app for compound interest calculations. Built with Java 21, Spring Boot 3.5.7. Interactive tool to calculate all variables in the compound interest formula.',
+      },
     },
     contact: {
       title: 'Get In Touch',
@@ -119,8 +123,8 @@ export const translations = {
         error: 'Error sending message. Please try again.',
       },
       info: {
-        email: 'Personal Email',
-        businessEmail: 'Business Email',
+        email: 'Email',
+        whatsapp: 'WhatsApp',
         phone: 'Phone',
         location: 'Location',
         availability: 'Open to new opportunities',
@@ -144,9 +148,9 @@ export const translations = {
     hero: {
       greeting: 'Hola, soy',
       name: 'Jasson Gómez',
-      title: 'Desarrollador Full Stack Senior',
-      subtitle: 'Arquitecto de Software Empresarial • 7+ Años de Experiencia',
-      description: 'Entregando soluciones de nivel empresarial con Python, JavaScript y tecnologías cloud. Disponible para posiciones full-time, trabajo por contrato y oportunidades de consultoría.',
+      title: 'Desarrollador Full Stack TypeScript',
+      subtitle: 'TypeScript • React • Node.js • Flutter',
+      description: 'Desarrollador Full Stack especializado en TypeScript con 7+ años construyendo aplicaciones web y móviles. Trabajo con React, Angular, Node.js, Express y AdonisJS. También tengo experiencia con JavaScript, Python, C#, Java, C++ y Flutter/Dart para desarrollo móvil.',
       cta: 'Contáctame',
       viewWork: 'Ver Mi Trabajo',
       location: 'El Salvador',
@@ -154,10 +158,10 @@ export const translations = {
     },
     about: {
       title: 'Sobre Mí',
-      subtitle: 'Construyendo soluciones empresariales que impulsan el crecimiento del negocio',
-      bio1: 'Desarrollador Full Stack Profesional con más de 7 años de experiencia práctica entregando aplicaciones listas para producción a clientes internacionales. Actualmente complementando mi amplia experiencia práctica con credenciales formales en Ingeniería de Sistemas Informáticos.',
-      bio2: 'Mi expertise abarca desde la arquitectura de microservicios y soluciones cloud-native hasta la creación de experiencias de usuario intuitivas. He entregado exitosamente más de 20 proyectos que van desde aplicaciones empresariales hasta startups innovadoras, siempre enfocándome en escalabilidad, rendimiento y mantenibilidad.',
-      bio3: 'Como Desarrollador Principal en SpeedyGoApp, arquitecté y desplegué una plataforma de transporte en tiempo real que sirve a miles de usuarios en Colombia, demostrando mi capacidad para liderar iniciativas técnicas desde el concepto hasta el lanzamiento exitoso al mercado.',
+      subtitle: 'Construyendo soluciones web y móviles con tecnologías modernas',
+      bio1: 'Desarrollador Full Stack con 7+ años de experiencia, especializado en TypeScript. Construyo aplicaciones web con React y Angular, sistemas backend con Node.js, Express y AdonisJS. Desarrollador autodidacta que se mantiene actualizado con las tecnologías en evolución.',
+      bio2: 'Mi stack principal es TypeScript en todos los ámbitos, pero también trabajo con JavaScript, Python, C#, Java y C++. Para desarrollo móvil, mi enfoque es Flutter con Dart. Uso Firebase extensivamente para servicios backend, junto con bases de datos SQL como MySQL y PostgreSQL. Trabajo con Git, GitHub y uso herramientas como Jira y Trello siguiendo metodologías Scrum.',
+      bio3: 'En SpeedyGoApp, construí una plataforma completa de transporte en tiempo real para Colombia usando Flutter, Firebase y Google Maps API. El proyecto maneja miles de usuarios y demuestra mi capacidad de entregar aplicaciones listas para producción desde el concepto hasta el despliegue.',
       highlights: {
         title: 'Datos Rápidos',
         experience: '7+ Años de Experiencia',
@@ -202,15 +206,15 @@ export const translations = {
         explore: 'Explorar el Proyecto',
       },
       freelance: {
-        title: 'Desarrollador Full Stack Senior',
+        title: 'Desarrollador Full Stack TypeScript',
         company: 'Freelance',
         period: '7+ años',
-        description: 'Trabajando con clientes internacionales en proyectos diversos.',
+        description: 'Trabajando con clientes en proyectos web y móviles usando tecnologías modernas basadas en TypeScript.',
         achievements: [
-          'Entregué 20+ proyectos exitosos',
-          'Especializado en ecosistemas React.js y Node.js',
-          'Implementé arquitecturas de microservicios',
-          'Integré soluciones de IA para optimización de procesos',
+          'Entregué 20+ proyectos en plataformas web y móviles',
+          'Construí aplicaciones con React, Angular, Node.js y Flutter',
+          'Implementé arquitecturas escalables con Firebase y bases de datos SQL',
+          'Gestioné proyectos usando Git, Jira, Trello y metodologías Scrum',
         ],
       },
     },
@@ -234,6 +238,10 @@ export const translations = {
         description:
           'Sistema inteligente de detección de anomalías en logs usando algoritmos ML. Construido con Python, FastAPI y scikit-learn para análisis de logs en producción',
       },
+      calculator: {
+        description:
+          'Aplicación web educativa para cálculos de interés compuesto. Construida con Java 21, Spring Boot 3.5.7. Herramienta interactiva para calcular todas las variables de la fórmula de interés compuesto.',
+      },
     },
     contact: {
       title: 'Contacto',
@@ -248,8 +256,8 @@ export const translations = {
         error: 'Error al enviar el mensaje. Por favor intenta de nuevo.',
       },
       info: {
-        email: 'Correo Personal',
-        businessEmail: 'Correo Empresarial',
+        email: 'Correo',
+        whatsapp: 'WhatsApp',
         phone: 'Teléfono',
         location: 'Ubicación',
         availability: 'Abierto a nuevas oportunidades',
