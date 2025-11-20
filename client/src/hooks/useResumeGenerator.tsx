@@ -256,27 +256,27 @@ export const useResumeGenerator = () => {
     const skillCategories = [
       {
         title: t('skills.frontend'),
-        skills: 'TypeScript, React, Angular, JavaScript (ES6+), TailwindCSS, Vite, HTML5/CSS3'
+        skills: 'TypeScript (ES6+, Type Safety), React (Hooks, Context, Redux), Angular (RxJS, Forms, Services), Tailwind CSS (Responsive Design, CSS3), Vite (Build Tool, HMR)'
       },
       {
         title: t('skills.backend'),
-        skills: 'Node.js (TypeScript), Express, AdonisJS, Python (FastAPI), C#, Java, RESTful APIs'
+        skills: 'Node.js (TypeScript, Async/Await), Express (REST APIs, Middleware), AdonisJS (ORM, Authentication), Python (Flask, FastAPI), C# (.NET, ASP.NET), Java (Spring, Maven)'
       },
       {
         title: t('skills.mobile'),
-        skills: 'Flutter (Dart), React Native, Java/Kotlin (Android SDK), Google Maps API'
+        skills: 'Flutter (Dart, Material Design), React Native (Expo, Native Modules), Java/Kotlin (Android SDK, Native Apps), Google Maps API'
       },
       {
         title: t('skills.database'),
-        skills: 'Firebase (Firestore, Auth), PostgreSQL, MySQL, MongoDB, SQL'
+        skills: 'Firebase (Firestore, Realtime DB, Auth), PostgreSQL (SQL, Queries), MySQL (SQL, Optimization), MongoDB'
       },
       {
         title: t('skills.cloud'),
-        skills: 'Firebase, Docker, Google Cloud Platform (Cloud Run), CI/CD, GitHub Actions'
+        skills: 'Firebase (Hosting, Functions, Analytics), Docker (Containers, Compose), Google Cloud (Cloud Run, Storage), CI/CD (GitHub Actions)'
       },
       {
         title: t('skills.tools'),
-        skills: 'Git, GitHub, Jira, Trello, Scrum, VS Code, Agile Methodologies'
+        skills: 'Git (GitHub, Version Control), Jira (Project Management, Agile), Trello (Task Management, Kanban), Scrum (Agile Methodologies, Sprints), VS Code (Extensions, Debugging)'
       }
     ];
 
